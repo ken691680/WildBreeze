@@ -1,0 +1,1 @@
+alter table `productinfo` add column `pi28` varchar(10) default NULL;

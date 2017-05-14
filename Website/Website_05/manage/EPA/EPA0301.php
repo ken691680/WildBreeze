@@ -1,0 +1,487 @@
+<?php //*********************************模組檔案引入********************************* ?>
+<?php include("../../Module/pMwm.php"); ?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************前置變數定義********************************* ?>
+<?php
+// ===========================================================================
+// 初始化參數宣告
+// ===========================================================================
+ErrorReporting(E_ERROR | E_WARNING | E_PARSE);                    //錯誤回報控制 0關掉 E_ALL全部回報
+ChkLogin();                               //檢查是否登入
+$hdnOp=$_POST["hdnOp"];                   //表單固定參數
+$_SESSION["sSQLFile"]="EPA/EPA0301.sql";  //SQL檔路徑
+set_time_limit(3600);
+
+// ===========================================================================
+// 接收參數宣告
+// ===========================================================================
+$PKey=$_GET["PKey"];                      //接收欲編輯的資料
+
+$FixDirectory=GetPathProject()."upload".GetLinking()."epaperimportlist".GetLinking();     //實體目錄位置
+uLog("FixDirectory == [".$FixDirectory."]");
+$_SESSION["NowPhysicalPath"]=$FixDirectory;
+
+$eil01="";
+$eil02="";
+$eil03="";
+$eil04="";
+$eil05="";
+$eil06="";
+$eil07="";
+
+if ($hdnOp=="Insert" || $hdnOp=="Update" || $hdnOp=="Delete" || $hdnOp=="Select") { //使用者新、修、刪、查資料
+	$eil01=$_POST["eil01"];
+	$eil02=$_POST["eil02"];
+	$eil03=$_POST["eil03"];
+	$eil04=$_POST["eil04"];
+	$eil05=$_POST["eil05"];
+	$eil06=$_POST["eil06"];
+	$eil07=$_POST["eil07"];
+} else if ($PKey!="" && $hdnOp!="Reset") { //使用者編輯資料
+	$aParme=Array($PKey);
+	$sSQL=SQLQuryI($_SESSION["sSQLFile"], "qury01", $aParme);
+	$rRs=GetRs($sSQL);
+	$iRsRows=mysql_num_rows($rRs);
+	if ($iRsRows>0) {
+		$aRows=mysql_fetch_array($rRs, MYSQL_ASSOC);
+		$eil01=$aRows["eil01"];
+		$eil02=$aRows["eil02"];
+		$eil03=$aRows["eil03"];
+		$eil04=$aRows["eil04"];
+		$eil05=$aRows["eil05"];
+		$eil06=$aRows["eil06"];
+		$eil07=$aRows["eil07"];
+	}
+}
+
+uLog("eil01 == " . $eil01);
+uLog("eil02 == " . $eil02);
+uLog("eil03 == " . $eil03);
+uLog("eil04 == " . $eil04);
+uLog("eil05 == " . $eil05);
+uLog("eil06 == " . $eil06);
+uLog("eil07 == " . $eil07);
+
+// ===========================================================================
+// 表單參數宣告
+// ===========================================================================
+if ($hdnOp=="Insert" || $hdnOp=="Update" || $hdnOp=="Delete" || $hdnOp=="Select") { //使用者新、修、刪、查資料
+	$aFormField01=Array("eil01", "");
+	$aFormField02=Array("eil02", "", "", 20, 200, "", "", "", "", false, "", "");
+	$aFormField03=Array("eil03", "", "", 50, 200, "", "", "", "", false, "", "");
+	$aFormField04=Array("eil04", "", "", 50, 200, "", "", "", "", false, "", "");
+	$aFormField05=Array("eil05", "", "", 20, 200, "", "", "", "", false, "", "");
+	$aFormField06=Array("eil06", "");
+	$aFormField07=Array("eil07", "");
+
+	$sItemDesc03="U 可上傳檔案格式為「.jpg檔案」";
+	$sItemDesc04="U 可上傳檔案格式為「.txt檔案」";
+} else if ($PKey!="" && $hdnOp!="Reset") { //使用者編輯資料
+	$aFormField01=Array("eil01", $eil01);
+	$aFormField02=Array("eil02", $eil02, "", 20, 200, "", "", "", "", false, "", "");
+	$aFormField03=Array("eil03", "", "", 50, 200, "", "", "", "", false, "", "");
+	$aFormField04=Array("eil04", "", "", 50, 200, "", "", "", "", false, "", "");
+	$aFormField05=Array("eil05", $eil05, "", 20, 200, "", "", "", "", false, "", "");
+	$aFormField06=Array("eil06", $eil06);
+	$aFormField07=Array("eil07", $eil07);
+
+	if ($eil03!="") {
+		$sItemDesc03="<a href='../../upload/epaperimportlist/".$eil03."' target='_blank'>".$eil03."</a><br>U 可上傳檔案格式為「.jpg檔案」";
+	} else {
+		$sItemDesc03="U 可上傳檔案格式為「.jpg檔案」";
+	}
+	if ($eil04!="") {
+		$sItemDesc04="<a href='../../upload/epaperimportlist/".$eil04."' target='_blank'>".$eil04."</a><br>U 可上傳檔案格式為「.jpg檔案」";
+	} else {
+		$sItemDesc04="U 可上傳檔案格式為「.txt檔案」";
+	}
+} else {
+	$aFormField01=Array("eil01", "");
+	$aFormField02=Array("eil02", "", "", 20, 200, "", "", "", "", false, "", "");
+	$aFormField03=Array("eil03", "", "", 50, 200, "", "", "", "", false, "", "");
+	$aFormField04=Array("eil04", "", "", 50, 200, "", "", "", "", false, "", "");
+	$aFormField05=Array("eil05", "", "", 20, 200, "", "", "", "", false, "", "");
+	$aFormField06=Array("eil06", "");
+	$aFormField07=Array("eil07", "");
+
+	$sItemDesc03="U 可上傳檔案格式為「.jpg檔案」";
+	$sItemDesc04="U 可上傳檔案格式為「.txt檔案」";
+}
+
+$sTitleBarF     ="電子報名單匯入";
+$aTitleF        =Array("發報編號", "發報標題", "發報圖檔", "發送名單", "連結網址", "點閱數", "開啟數");
+$aWidthF        =Array("20%", "60%", "20%");
+$aItemCodeF     =Array("H", "I", $sItemDesc03, $sItemDesc04, "I", "H", "H");
+$aItemParameterF=Array($aFormField01, $aFormField02, $aFormField03, $aFormField04, $aFormField05, $aFormField06, $aFormField07);
+$aDescriptionF  =Array("", "", "", "", "", "", "");
+
+if ($hdnOp=="Insert" || $hdnOp=="Update" || $hdnOp=="Delete" || $hdnOp=="Select") { //使用者新、修、刪、查資料
+	$bA=Array("DoSubmit('Insert')", "", "送出", "");
+	$bI=Array("DoSubmit('Select')", "", "查詢", "");
+	$bR=Array("DoSubmit('Reset')", "", "重填", "");
+	$aButtonF       =Array($bA, $bI);
+} else if ($PKey!="" && $hdnOp!="Reset") { //使用者編輯資料
+	$bU=Array("DoSubmit('Update')", "", "發送", "");
+	$bD=Array("DoSubmit('Delete')", "", "刪除", "");
+	$bR=Array("DoSubmit('Reset')", "", "重填", "");
+	//$aButtonF       =Array($bU, $bD);
+	$aButtonF       =Array($bD);
+} else {
+	$bA=Array("DoSubmit('Insert')", "", "送出", "");
+	$bI=Array("DoSubmit('Select')", "", "查詢", "");
+	$bR=Array("DoSubmit('Reset')", "", "重填", "");
+	$aButtonF       =Array($bA, $bI);
+}
+
+$aVisableF      =Array(false, true, true, true, true, false, false);
+
+// ===========================================================================
+// 資料列表參數宣告
+// ===========================================================================
+$sFileNameD         =$_SESSION["sSQLFile"];
+$sFlagNameD         ="qury03";
+$aParmeD            =Array($eil02);
+$sOrderFieldNameD   =$_GET["OFN"];
+$sOrderSequenceD    =$_GET["SOS"];
+$sDefOrderFieldNameD="lasttime";
+$bChangeSQLD        ="";
+$iPageNumD          =$_GET["IPN"];
+$iNowPageD          =$_GET["INP"];
+
+$aTitleD            =Array("發送時間", "標題", "點閱數", "開啟數", "編輯資料");
+$aWidthD            =Array("20%", "20%", "20%", "20%", "20%"); //當開啟Detail只能使用95%，如無開啟可使用100%
+$aAlignD            =Array("center", "center", "center", "center", "center");
+
+$aFieldD            =Array("lasttime", "eil02", "eil06", "eil07", "");
+
+$aCalCodeD          =Array("", "", "", "", "Edit");
+$aCalFieldD         =Array(Array(), Array(), Array(), Array(), Array("eil01"));
+
+$bOpenDetailD=false;
+$sDetailTitleD="";
+$aDetailTitleListD=Array();
+$aDetailFieldListD=Array();
+
+?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************程式邏輯演算********************************* ?>
+<?php
+uLog("hdnOp 1 ============================================ " . $hdnOp);
+$sMsg="";
+switch ($hdnOp) {
+case 'Insert':
+	uLog("switch Insert");
+
+	$sRndName=GetDateTimeCE().GetMicroTime();
+
+	$sUserfileName=iconv("UTF-8", "big5", $_FILES['eil03']['name']);
+	uLog("sUserfileName == [".$sUserfileName."]");
+	$seil03="";
+
+	if (Trim($sUserfileName)!="") {
+		if (FileExist($_SESSION["NowPhysicalPath"].$sRndName.$sUserfileName)){ //假如檔案重覆，則更新失敗
+			$sMsg=$sMsg."檔案[".$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]重覆，請重新命名後再上傳！\\r\\n";
+		} else { //假如檔名不重覆，上傳新檔
+			if (move_uploaded_file($_FILES['eil03']['tmp_name'], $_SESSION["NowPhysicalPath"].$sRndName.LCase($sUserfileName))) {
+				$sMsg=$sMsg."檔案[".$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳成功！\\r\\n";
+				$seil03=$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")));
+			} else {
+				$sMsg=$sMsg."檔案[".$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳失敗，發生不明原因，請告知系統管理員！\\r\\n";
+			}
+		}
+	}
+
+	$sUserfileName=iconv("UTF-8", "big5", $_FILES['eil04']['name']);
+	uLog("sUserfileName == [".$sUserfileName."]");
+	$seil04="";
+
+	if (Trim($sUserfileName)!="") {
+		if (FileExist($_SESSION["NowPhysicalPath"].$sRndName.$sUserfileName)){ //假如檔案重覆，則更新失敗
+			$sMsg=$sMsg."檔案[".$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]重覆，請重新命名後再上傳！\\r\\n";
+		} else { //假如檔名不重覆，上傳新檔
+			if (move_uploaded_file($_FILES['eil04']['tmp_name'], $_SESSION["NowPhysicalPath"].$sRndName.LCase($sUserfileName))) {
+				$sMsg=$sMsg."檔案[".$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳成功！\\r\\n";
+				$seil04=$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")));
+			} else {
+				$sMsg=$sMsg."檔案[".$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳失敗，發生不明原因，請告知系統管理員！\\r\\n";
+			}
+		}
+	}
+
+	$eil01=GetDateTimeCE().GetMicroTime();
+	require("../../phpMailer/class.phpmailer.php");
+	
+	/*
+	$aParme=Array("會員");
+	$sSQL=SQLQuryI($_SESSION["sSQLFile"], "qury04", $aParme);
+	$rRs=GetRs($sSQL);
+
+	while ($row = mysql_fetch_array($rRs, MYSQL_ASSOC)) {
+		$mail->AddAddress($row["me01"], $row["me04"]);
+	}
+	mysql_free_result($rRs);
+	*/
+
+    /*** open the file for reading ***/
+    $fp = fopen( $_SESSION["NowPhysicalPath"].$seil04, 'r' );
+		
+		if ($fp) {
+			uLog("找到資料檔");
+
+    /*** loop over the file pointer ***/
+    while ( !feof ( $fp) )
+    {
+			//發送會員郵件
+
+					$mail = new PHPMailer();
+					/*
+					$mail->IsSMTP(); // send via SMTP
+					$mail->Host = "mail.jobdone.us"; // SMTP servers
+					$mail->Port = 2626; // SMTP port
+					$mail->SMTPAuth = true; // turn on SMTP authentication
+					$mail->Username = $sSmtp_ID; // SMTP username
+					$mail->Password = $sSmtp_Pwd; // SMTP password
+					$mail->CharSet = "utf-8"; // SMTP password
+					*/
+
+$mail->IsSMTP(); // send via SMTP
+$mail->SMTPSecure = "ssl"; // Gmail的SMTP主機需要使用SSL連線
+$mail->Host = "smtp.gmail.com"; // SMTP servers
+$mail->Port = 465; // SMTP port
+$mail->SMTPAuth = true; // turn on SMTP authentication
+$mail->Username = "epaper@kumotor.com"; // SMTP username
+$mail->Password = "djfos@81723"; // SMTP password
+$mail->CharSet = "utf-8"; // SMTP password
+			 
+			$mail->From = "service@kumotor.com.tw";
+			$mail->FromName = "野遊風電子報";
+        /*** read the line into a buffer ***/
+        $buffer = fgets( $fp, 4096);
+        /*** if we are at the right line number ***/
+				uLog("mail buffer == [".$buffer."]");
+        if($buffer!="")
+        {
+            /*** return the line that is currently in the buffer ***/
+            $mail->AddAddress($buffer, "");
+        }
+
+			$mail->WordWrap = 50; // set word wrap
+
+			//$msgBody =GetFileContent($_SESSION["NowPhysicalPath"].LCase($sUserfileName));
+			$msgBody ="<HTML><HEAD><TITLE>野遊風電子報</TITLE><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"></HEAD><BODY><CENTER><A HREF=\"http://".GetServerHostName()."/".GetPathProjectV()."goto_mail.php?eil01=".$eil01."\"><img src=\"http://".GetServerHostName()."/".GetPathProjectV()."upload/epaperimportlist/".$seil03."\"></A><img src=\"http://".GetServerHostName()."/".GetPathProjectV()."count_mail.php?eil01=".$eil01."\" width='1' height='1'></CENTER></BODY></HTML>";
+
+			// 電郵內容，以下為發送 HTML 格式的郵件
+			$mail->IsHTML(true); // send as HTML
+			$mail->Subject = $eil02;
+			$mail->Body = $msgBody;
+			//$mail->AltBody = "This is the text-only body";
+
+			if(!$mail->Send()) {
+				//echo "Message was not sent <p>";
+				//echo "Mailer Error: " . $mail->ErrorInfo;
+				//$sMsg=$sMsg."發信錯誤：[".$mail->ErrorInfo."]\\r\\n";
+				$sMsg=$sMsg."發信錯誤";
+			} else {
+				$sMsg=$sMsg."此電子報已發送！\\r\\n";
+			}
+
+        /*** clear the buffer ***/
+        $buffer = '';
+				//break;
+    }
+		uLog("關閉資料檔");
+		fclose($fp);
+
+		}
+
+
+
+
+	//$aParme=Array(GetDateTimeCE().GetMicroTime(), $eil02, $seil03, $epc01, GetManID());
+	$aParme=Array($eil01, $eil02, $seil03, $seil04, $eil05, $eil06, $eil07, GetManID());
+	SQLExec($_SESSION["sSQLFile"], "exec01", $aParme);
+	$sMsg=$sMsg."資料已新增成功！";
+	break;
+case 'Update':
+	uLog("switch Update");
+
+	$sUserfileName=iconv("UTF-8", "big5", $_FILES['eil03']['name']);
+	uLog("sUserfileName == [".$sUserfileName."]");
+	$seil03="";
+
+	if (Trim($sUserfileName)!="") {
+		if (FileExist($_SESSION["NowPhysicalPath"].$sUserfileName)){ //假如檔案重覆，則更新失敗
+			$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]重覆，請重新命名後再上傳！\\r\\n";
+		} else { //假如檔名不重覆，上傳新檔
+			if (move_uploaded_file($_FILES['eil03']['tmp_name'], $_SESSION["NowPhysicalPath"].LCase($sUserfileName))) {
+				$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳成功！\\r\\n";
+				$seil03=LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")));
+
+				$aParme=Array($seil03, $eil01);
+				SQLExec($_SESSION["sSQLFile"], "exec04", $aParme);
+			} else {
+				$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳失敗，發生不明原因，請告知系統管理員！\\r\\n";
+			}
+		}
+	}
+
+	//發送會員郵件
+	require("../../phpMailer/class.phpmailer.php");
+	$mail = new PHPMailer();
+	/*
+	$mail->IsSMTP(); // send via SMTP
+	$mail->SMTPSecure = "ssl"; // Gmail的SMTP主機需要使用SSL連線
+	$mail->Host = "smtp.gmail.com"; // SMTP servers
+	$mail->Port = 465; // SMTP port
+	$mail->SMTPAuth = true; // turn on SMTP authentication
+	$mail->Username = "service@jpooya.com"; // SMTP username
+	$mail->Password = "25118385"; // SMTP password
+	$mail->CharSet = "utf-8"; // SMTP password
+	*/
+
+$mail->IsSMTP(); // send via SMTP
+$mail->SMTPSecure = "ssl"; // Gmail的SMTP主機需要使用SSL連線
+$mail->Host = "smtp.gmail.com"; // SMTP servers
+$mail->Port = 465; // SMTP port
+$mail->SMTPAuth = true; // turn on SMTP authentication
+$mail->Username = "epaper@kumotor.com"; // SMTP username
+$mail->Password = "djfos@81723"; // SMTP password
+$mail->CharSet = "utf-8"; // SMTP password
+	 
+	$mail->From = "service@kumotor.com";
+	$mail->FromName = "野遊風電子報";
+
+	$aParme=Array("是");
+	$sSQL=SQLQuryI($_SESSION["sSQLFile"], "qury04", $aParme);
+	$rRs=GetRs($sSQL);
+
+	while ($row = mysql_fetch_array($rRs, MYSQL_ASSOC)) {
+		$mail->AddAddress($row["me01"], $row["me04"]);
+	}
+	mysql_free_result($rRs);
+
+	$mail->WordWrap = 50; // set word wrap
+
+	$msgBody =GetFileContent($_SESSION["NowPhysicalPath"].LCase($sUserfileName));
+
+	// 電郵內容，以下為發送 HTML 格式的郵件
+	$mail->IsHTML(true); // send as HTML
+	$mail->Subject = $eil02;
+	$mail->Body = $msgBody;
+	//$mail->AltBody = "This is the text-only body";
+
+	if(!$mail->Send()) {
+		//echo "Message was not sent <p>";
+		//echo "Mailer Error: " . $mail->ErrorInfo;
+		//$sMsg=$sMsg."發信錯誤：[".$mail->ErrorInfo."]\\r\\n";
+		$sMsg="發信錯誤";
+	} else {
+		$sMsg=$sMsg."此電子報已發送！\\r\\n";
+	}
+
+	$aParme=Array($eil02, $epc01, GetManID(), $eil01);
+	SQLExec($_SESSION["sSQLFile"], "exec02", $aParme);
+	$sMsg=$sMsg."資料已更新成功！";
+	break;
+case 'Delete':
+	uLog("switch Delete");
+	$aParme=Array($eil01);
+	SQLExec($_SESSION["sSQLFile"], "exec03", $aParme);
+	$sMsg="資料已刪除成功！";
+	break;
+Case 'Select':
+	uLog("switch Select");
+	$bChangeSQLD=true;
+	break;
+default:
+	uLog("switch default");
+	break;
+}
+
+HtmlManTopII();
+//HtmlManMenuII();
+HtmlManAPNameII("EPA0301 - 電子報管理 -＞ 電子報名單匯入");
+HtmlManContentTopII();
+
+RwForm("", "multipart/form-data", "frmUser", "", True);
+FormList($sTitleBarF, $aTitleF, $aWidthF, $aItemCodeF, $aItemParameterF, $aDescriptionF, $aButtonF, $aVisableF);
+DataList($sFileNameD, $sFlagNameD, $aParmeD, $sOrderFieldNameD, $sOrderSequenceD, $sDefOrderFieldNameD, $bChangeSQLD, $iPageNumD, $iNowPageD, $aTitleD, $aWidthD, $aAlignD, $aFieldD, $aCalCodeD, $aCalFieldD, $bOpenDetailD, $sDetailTitleD, $aDetailTitleListD, $aDetailFieldListD);
+RwForm("", "", "", "", False);
+
+HtmlManContentDownII();
+JScript($sMsg);
+HtmlManDownII();
+?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************其它模組專區********************************* ?>
+<?php
+function JScript($sErr) {
+	?>
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	function DoSubmit(sOpCode) {
+		//  輸入檢核開始
+		//  ....
+
+		sStatus = true;
+		if(sOpCode=="Insert") {
+			document.frmUser.hdnOp.value = "Insert";
+		}
+		if(sOpCode=="Update") {
+			document.frmUser.hdnOp.value = "Update";
+		}
+		if(sOpCode=="Delete") {
+			document.frmUser.hdnOp.value = "Delete";
+		}
+		if(sOpCode=="Select") {
+			document.frmUser.hdnOp.value = "Select";
+		}
+		if(sOpCode=="Reset") {
+			document.frmUser.reset();
+		}
+
+		document.frmUser.hdnOp.value=sOpCode;
+		if (sStatus==true) {
+			document.frmUser.submit();
+		}
+		return true;
+	}
+
+	AlertErr("<?php echo $sErr?>");
+	function AlertErr(sMsg) {
+		if (sMsg!="") {
+			alert(sMsg);
+		}
+	}
+	//-->
+	</SCRIPT>
+	<?php
+}
+
+function GetEpaperClass() {
+	$aResult=Array();
+
+	$aValue=Array("");
+	$aName=Array("請選擇");
+	
+	$aParme=Array();
+	$sSQL=SQLQuryI($_SESSION["sSQLFile"], "qury02", $aParme);
+	$rRs=GetRs($sSQL);
+
+	while ($row = mysql_fetch_array($rRs, MYSQL_ASSOC)) {
+		$aValue=UnidimensionalArrayAppend($aValue, $row["epc01"]);
+		$aName=UnidimensionalArrayAppend($aName, $row["epc02"]);
+	}
+	mysql_free_result($rRs);
+
+	$aResult=UnidimensionalArrayAppend($aResult, $aValue);
+	$aResult=UnidimensionalArrayAppend($aResult, $aName);
+
+	return $aResult;
+}
+
+?>
+<?php //**************************************************************************** ?>

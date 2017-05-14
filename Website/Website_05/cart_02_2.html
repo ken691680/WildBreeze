@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tp.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>WildBreeze</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(images/bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+}
+</style>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- InstanceParam name="top" type="boolean" value="true" -->
+<!-- InstanceParam name="copyright" type="boolean" value="true" -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script type="text/javascript" src="switchmenu.js"></script> 
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top" style="background:url(images/bg.jpg) repeat-x top center"><table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+      
+      <tr>
+        <td align="center"><table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="300" rowspan="2" align="left" valign="bottom"><a href="index.html"><img src="images/index.png" alt="" width="300" height="70" border="0" /></a></td>
+            <td align="right" valign="middle" class="top_txt5a4f3f"><a href="member_login.html" class="top_txt5a4f3f_a">登入</a>│<a href="member_join.html" class="top_txt5a4f3f_a">加入會員</a>│<a href="qa.html" class="top_txt5a4f3f_a">購物說明</a>│<a href="member_01_1.html" class="top_txt5a4f3f_a">訂單查詢</a>│<a href="http://www.facebook.com/pages/野遊風-戶外休閒用品館/114711665231623" target="_blank"><img src="images/icon_fb.png" width="14" height="14" border="0" align="middle" /></a></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle"><table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="top_txtc9bc9c"><div style="margin-right:5px; float:none">
+                  <div class="top_txt5a4f3f" style=" margin:auto; margin-right:10px; float:left">賴志明</div>
+                  您好，歡迎來到野遊風。</div></td>
+                <td align="right" valign="middle"><table width="185" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td rowspan="3" align="right" valign="middle"><img src="images/index-03.jpg" width="5" height="25" /></td>
+                    <td colspan="2" valign="bottom" style="border-top:1px solid #5a4f3f"><div style="height:1px"></div></td>
+                    <td rowspan="3" align="left" valign="middle"><img src="images/index-05.jpg" width="5" height="25" /></td>
+                  </tr>
+                  <tr>
+                    <td width="55" align="center" bgcolor="#FFFFFF"><img src="images/cart.jpg" width="21" height="18" /></td>
+                    <td align="left" bgcolor="#FFFFFF" class="top_txt5a4f3f">購物清單：0個商品</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" valign="top" style="border-bottom:1px solid #5a4f3f"><div style="height:1px"></div></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" valign="bottom"><object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="55">
+              <param name="movie" value="swf/menu.swf" />
+              <param name="quality" value="high" />
+              <param name="wmode" value="transparent" />
+              <param name="swfversion" value="6.0.65.0" />
+              <!-- 此 param 標籤會提示使用 Flash Player 6.0 r65 和更新版本的使用者下載最新版本的 Flash Player。如果您不想讓使用者看到這項提示，請將其刪除。 -->
+              <param name="expressinstall" value="Scripts/expressInstall.swf" />
+              <!-- 下一個物件標籤僅供非 IE 瀏覽器使用。因此，請使用 IECC 將其自 IE 隱藏。 -->
+              <!--[if !IE]>-->
+              <object type="application/x-shockwave-flash" data="swf/menu.swf" width="900" height="55">
+                <!--<![endif]-->
+                <param name="quality" value="high" />
+                <param name="wmode" value="transparent" />
+                <param name="swfversion" value="6.0.65.0" />
+                <param name="expressinstall" value="Scripts/expressInstall.swf" />
+                <!-- 瀏覽器會為使用 Flash Player 6.0 和更早版本的使用者顯示下列替代內容。 -->
+                <div>
+                  <h4>這個頁面上的內容需要較新版本的 Adobe Flash Player。</h4>
+                  <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="取得 Adobe Flash Player" width="112" height="33" /></a></p>
+                </div>
+                <!--[if !IE]>-->
+              </object>
+              <!--<![endif]-->
+            </object></td>
+          </tr>
+        </table></td>
+      </tr>
+      
+      <tr>
+        <td align="center" valign="top"><!-- InstanceBeginEditable name="content" -->
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td align="center" valign="middle"><table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+                <tr valign="bottom">
+                  <td height="5" colspan="3" align="right"><img src="images/li.png" alt="" width="1" height="1" /></td>
+                </tr>
+                <tr valign="bottom">
+                  <td width="9" align="right"><img src="images/line-02.png" alt="" width="9" height="40" /></td>
+                  <td width="640" align="left" valign="middle" class="titleB" style="background:url(images/line.png) bottom repeat-x"><img src="images/titlebar.png" alt="" width="10" height="15" align="absmiddle" />購物車</td>
+                  <td width="11" align="left"><img src="images/line-03.png" alt="" width="11" height="40" /></td>
+                </tr>
+                <tr>
+                  <td rowspan="3" align="right" style="background:url(images/line-04.png) repeat-y right">&nbsp;</td>
+                  <td align="left" valign="top" bgcolor="#CDBFA2" class="txt13_313131"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr valign="bottom">
+                      <td width="15" height="15" align="right"><img src="images/log_bg_01.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_02.png) repeat-x bottom">&nbsp;</td>
+                      <td width="15" align="left"><img src="images/log_bg_03.png" alt="" width="15" height="15" /></td>
+                    </tr>
+                    <tr>
+                      <td align="right" style="background:url(images/log_bg_04.png) no-repeat right top">&nbsp;</td>
+                      <td height="200" valign="top" bgcolor="#FFFFFF" style="background:url(images/log_bg_05.png) repeat-x"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="30" align="left" valign="top"><img src="images/title-09.png" alt="" width="149" height="21" /></td>
+                        </tr>
+                        <tr>
+                          <td height="220" align="center" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="2">
+                            <tr class="title_5a4f3f">
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px solid"> 商品名稱</td>
+                              <td width="12%" align="center" valign="middle" style="border-bottom:#97866d 1px solid">&nbsp;</td>
+                              <td width="10%" align="center" valign="middle" style="border-bottom:#97866d 1px solid"> 數量</td>
+                              <td width="10%" align="center" valign="middle" style="border-bottom:#97866d 1px solid">金額</td>
+                              <td width="10%" align="center" valign="middle" style="border-bottom:#97866d 1px solid"> 樣式 </td>
+                              <td width="10%" align="center" valign="middle" style="border-bottom:#97866d 1px solid">尺寸</td>
+                              <td width="10%" align="center" valign="middle" style="border-bottom:#97866d 1px solid"> 小計 </td>
+                            </tr>
+                            <tr class="txt13_313131">
+                              <td height="100" align="center" valign="middle" style="border-bottom:#97866d 1px dotted"><table border="0" align="center" cellpadding="5" cellspacing="0">
+                                <tr>
+                                  <td align="center" valign="middle" bgcolor="#C9BC9C"><a href="#"><img src="images/item_pic01.jpg" alt="" width="80" height="80" border="0" align="middle" /></a></td>
+                                  <td width="180" align="left" valign="middle"><a href="#" class="item_txt_a">OR M's TRANSCENDENT SWEATER™ 輕量羽絨外套</a></td>
+                                  </tr>
+                              </table></td>
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px dotted"><a href="shop.html" class="btn_bg">下次再買</a></td>
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px dotted"><select name="select2" class="top_txt5a4f3f" id="select2">
+                                <option>1</option>
+                              </select></td>
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px dotted">1999</td>
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px dotted">瀝灰</td>
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px dotted"><select name="select5" class="top_txt5a4f3f" id="select4">
+                                <option>s</option>
+                              </select></td>
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px dotted">1999</td>
+                            </tr>
+                            <tr class="txt13_313131">
+                              <td height="100" align="center" valign="middle"><table border="0" align="center" cellpadding="5" cellspacing="0">
+                                <tr>
+                                  <td align="center" valign="middle" bgcolor="#C9BC9C"><a href="#"><img src="images/item_pic01.jpg" alt="" width="80" height="80" border="0" align="middle" /></a></td>
+                                  <td width="180" align="left" valign="middle"><a href="#" class="item_txt_a">OR M's TRANSCENDENT SWEATER™ 輕量羽絨外套</a></td>
+                                  </tr>
+                              </table></td>
+                              <td align="center" valign="middle" style="border-bottom:#97866d 1px dotted"><a href="shop.html" class="btn_bg">下次再買</a></td>
+                              <td align="center" valign="middle"><span style="border-bottom:#97866d 1px dotted">
+                                <select name="select" class="top_txt5a4f3f" id="select">
+                                  <option>1</option>
+                                  </select>
+                              </span></td>
+                              <td align="center" valign="middle">1999</td>
+                              <td align="center" valign="middle">瀝灰</td>
+                              <td align="center" valign="middle"><span style="border-bottom:#97866d 1px dotted">
+                                <select name="select6" class="top_txt5a4f3f" id="select5">
+                                  <option>s</option>
+                                </select>
+                              </span></td>
+                              <td align="center" valign="middle">1999</td>
+                            </tr>
+                            <tr>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-top:#97866d 1px solid">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-top:#97866d 1px solid">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-top:#97866d 1px solid">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-top:#97866d 1px solid">&nbsp;</td>
+                              <td colspan="2" align="right" valign="bottom" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-top:#97866d 1px solid">商品金額總計</td>
+                              <td align="right" valign="bottom" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-top:#97866d 1px solid">1999</td>
+                            </tr>
+                            <tr>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f">&nbsp;</td>
+                              <td colspan="2" align="right" valign="bottom" bgcolor="#D3C1A9" class="top_txt5a4f3f">物流費</td>
+                              <td align="right" valign="bottom" bgcolor="#D3C1A9" class="top_txt5a4f3f">0</td>
+                            </tr>
+                            <tr>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-bottom:#97866d 1px solid">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-bottom:#97866d 1px solid">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-bottom:#97866d 1px solid">&nbsp;</td>
+                              <td align="right" valign="middle" bgcolor="#D3C1A9" class="top_txt5a4f3f" style="border-bottom:#97866d 1px solid">&nbsp;</td>
+                              <td colspan="2" align="right" valign="bottom" bgcolor="#D3C1A9" class="title_5a4f3f" style="border-bottom:#97866d 1px solid">訂單金額總計</td>
+                              <td align="right" valign="bottom" bgcolor="#D3C1A9" class="title_5a4f3f" style="border-bottom:#97866d 1px solid">1999</td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table></td>
+                      <td align="left" style="background:url(images/log_bg_06.png) no-repeat left top">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                      <td height="15" align="right"><img src="images/log_bg_07.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_08.png) top repeat-x">&nbsp;</td>
+                      <td align="left"><img src="images/log_bg_09.png" alt="" width="15" height="15" /></td>
+                    </tr>
+                  </table></td>
+                  <td rowspan="3" align="left" style="background:url(images/line-05.png) left repeat-y">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top" bgcolor="#CDBFA2" class="txt13_313131"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr valign="bottom">
+                      <td width="15" height="15" align="right"><img src="images/log_bg_01.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_02.png) repeat-x bottom">&nbsp;</td>
+                      <td width="15" align="left"><img src="images/log_bg_03.png" alt="" width="15" height="15" /></td>
+                    </tr>
+                    <tr>
+                      <td align="right" style="background:url(images/log_bg_04.png) no-repeat right top">&nbsp;</td>
+                      <td valign="top" bgcolor="#FFFFFF" style="background:url(images/log_bg_05.png) repeat-x"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="30" align="left" valign="top" class="top_txt5a4f3f" style="border-bottom:#97866d 1px solid"><img src="images/title_cart01.png" alt="" width="110" height="22" /></td>
+                        </tr>
+                        <tr>
+                          <td height="150" align="center" valign="middle"><table border="0" cellspacing="5" cellpadding="0">
+                            <tr>
+                              <td width="100" align="center" valign="middle" class="title_5a4f3f">中文全名</td>
+                              <td width="400" align="left" valign="middle" class="top_txt5a4f3f"><input name="textfield11" type="text" class="top_txt5a4f3f" id="textfield11"  style="width:120px"/>
+                                <input type="radio" name="radio" id="radio5" value="radio" />
+                                <label for="radio5"></label>
+                                先生
+                                <input type="radio" name="radio2" id="radio6" value="radio2" />
+                                <label for="radio6"></label>
+                                小姐</td>
+                            </tr>
+                            <tr>
+                              <td width="100" align="center" valign="middle" class="title_5a4f3f">電子郵件</td>
+                              <td align="left" valign="middle" class="top_txt5a4f3f"><input name="textfield11" type="text" class="top_txt5a4f3f" id="textfield13"  style="width:220px"/></td>
+                            </tr>
+                            <tr>
+                              <td align="center" valign="middle" class="title_5a4f3f">手機號碼</td>
+                              <td align="left" valign="middle" class="top_txt5a4f3f"><input name="textfield11" type="text" class="top_txt5a4f3f" id="textfield18"  style="width:120px"/>
+如：0912345678</td>
+                            </tr>
+                            <tr>
+                              <td align="center" valign="middle" class="title_5a4f3f">聯絡地址</td>
+                              <td align="left" valign="middle" class="top_txt5a4f3f"><label for="select3"></label>
+                                <select name="select3" class="top_txt5a4f3f" id="select3" style="width:100px; height:20px">
+                                  <option>郵遞區號</option>
+                                </select>
+                                <input name="textfield11" type="text" class="top_txt5a4f3f" id="textfield19"  style="width:250px"/></td>
+                            </tr>
+                            <tr>
+                              <td width="100" align="center" valign="middle" class="title_5a4f3f">發票資料</td>
+                              <td align="left" valign="middle" class="top_txt5a4f3f"> 統一編號
+                                <input name="textfield11" type="text" class="top_txt5a4f3f" id="textfield20"  style="width:100px"/>
+                                發票抬頭
+                                <input name="textfield11" type="text" class="top_txt5a4f3f" id="textfield21"  style="width:100px"/></td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                      </table></td>
+                      <td align="left" style="background:url(images/log_bg_06.png) no-repeat left top">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                      <td height="15" align="right"><img src="images/log_bg_07.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_08.png) top repeat-x">&nbsp;</td>
+                      <td align="left"><img src="images/log_bg_09.png" alt="" width="15" height="15" /></td>
+                    </tr>
+                  </table></td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top" bgcolor="#CDBFA2" class="txt13_313131"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr valign="bottom">
+                      <td width="15" height="15" align="right"><img src="images/log_bg_01.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_02.png) repeat-x bottom">&nbsp;</td>
+                      <td width="15" align="left"><img src="images/log_bg_03.png" alt="" width="15" height="15" /></td>
+                      </tr>
+                    <tr>
+                      <td align="right" style="background:url(images/log_bg_04.png) no-repeat right top">&nbsp;</td>
+                      <td valign="top" bgcolor="#FFFFFF" style="background:url(images/log_bg_05.png) repeat-x"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="30" align="left" valign="top" class="top_txt5a4f3f" style="border-bottom:#97866d 1px solid"><img src="images/title_cart02.png" alt="" width="110" height="22" />　
+                            <input name="checkbox2" type="checkbox" class="top_txt5a4f3f" id="checkbox2" />
+                            <label for="checkbox2"></label>
+                            同訂購人資訊</td>
+                          </tr>
+                        <tr>
+                          <td height="120" align="center" valign="middle"><table border="0" cellspacing="5" cellpadding="0">
+                            <tr>
+                              <td width="100" align="center" valign="middle" class="title_5a4f3f">中文全名</td>
+                              <td width="400" align="left" valign="middle" class="top_txt5a4f3f"><input name="textfield12" type="text" class="top_txt5a4f3f" id="textfield22"  style="width:120px"/>
+                                <input type="radio" name="radio" id="radio7" value="radio" />
+                                <label for="radio7"></label>
+                                先生
+                                <input type="radio" name="radio2" id="radio8" value="radio2" />
+                                <label for="radio8"></label>
+                                小姐</td>
+                              </tr>
+                            <tr>
+                              <td align="center" valign="middle" class="title_5a4f3f">手機號碼</td>
+                              <td align="left" valign="middle" class="top_txt5a4f3f"><input name="textfield12" type="text" class="top_txt5a4f3f" id="textfield23"  style="width:120px"/>
+如：0912345678</td>
+                              </tr>
+                            <tr>
+                              <td align="center" valign="middle" class="title_5a4f3f">送貨地址</td>
+                              <td align="left" valign="middle" class="top_txt5a4f3f"><label for="select3"></label>
+                                <select name="select4" class="top_txt5a4f3f" id="select3" style="width:100px; height:20px">
+                                  <option>郵遞區號</option>
+                                  </select>
+                                <input name="textfield12" type="text" class="top_txt5a4f3f" id="textfield24"  style="width:250px"/></td>
+                              </tr>
+                            </table></td>
+                          </tr>
+                        </table></td>
+                      <td align="left" style="background:url(images/log_bg_06.png) no-repeat left top">&nbsp;</td>
+                      </tr>
+                    <tr valign="top">
+                      <td height="15" align="right"><img src="images/log_bg_07.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_08.png) top repeat-x">&nbsp;</td>
+                      <td align="left"><img src="images/log_bg_09.png" alt="" width="15" height="15" /></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr valign="top">
+                  <td align="right"><img src="images/line-06.png" alt="" width="9" height="10" align="right" /></td>
+                  <td style="background:url(images/line-07.png) repeat-x top">&nbsp;</td>
+                  <td align="left"><img src="images/line-08.png" alt="" width="11" height="10" /></td>
+                </tr>
+                <tr valign="top">
+                  <td height="40" colspan="3" align="center" valign="middle"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="btn_bg">
+                    <tr valign="top">
+                      <td width="150" align="left" class="btn_bg"><a href="cart_01.html" class="btn_bg">重新選擇付款方式</a></td>
+                      <td height="30" align="center" class="btn_bg"><a href="cart_03_2.html"><img src="images/pay_sent.jpg" alt="" width="100" height="30" border="0" /></a></td>
+                      <td width="150" align="right" class="btn_bg">&nbsp;</td>
+                    </tr>
+                  </table></td>
+                </tr>
+                <tr valign="top">
+                  <td height="20" colspan="3" align="right"><img src="images/li.png" alt="" width="1" height="1" /></td>
+                </tr>
+              </table></td>
+            </tr>
+            </table>
+        <!-- InstanceEndEditable --></td>
+      </tr>
+      
+      <tr>
+        <td align="center"><table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="5" colspan="2" align="left" valign="middle"><img src="images/li.png" alt="" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td height="5" colspan="2" align="left" valign="middle" style="border-top:#5a4f3f 1px solid"><img src="images/li.png" alt="" width="1" height="1" /></td>
+            </tr>
+          <tr>
+            <td align="left" valign="middle" class="top_txt5a4f3f">戶外玩家有限公司 版權所有 © 2010 Wild Breeze All Rights Reserved. 最佳瀏覽器IE7.0以上<br />
+              服務電話：(02)8512-1882    傳真電話：(02)8512-2836    地址：台北縣三重市重新路五段639號1樓 </td>
+            <td width="130" align="right" valign="middle"><img src="images/logo.png" width="130" height="50" /></td>
+          </tr>
+        </table></td>
+      </tr>
+      
+    </table></td>
+  </tr>
+</table>
+<script type="text/javascript">
+swfobject.registerObject("FlashID");
+</script>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,438 @@
+
+<?php //*********************************模組檔案引入********************************* ?>
+<?php include("Module/pUwm.php"); ?>
+<?php include("LibSecurImage/securimage.php"); ?>
+<?php require("phpMailer/class.phpmailer.php"); ?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************前置變數定義********************************* ?>
+<?php
+// ===========================================================================
+// 初始化參數宣告
+// ===========================================================================
+ChkLogin();
+
+ErrorReporting(E_ERROR | E_WARNING | E_PARSE);                    //錯誤回報控制 0關掉 E_ALL全部回報
+$action=$_POST["action"];
+uLog($action);
+// ===========================================================================
+// 接收參數宣告
+// ===========================================================================
+$me01=GetMemID();
+
+// ===========================================================================
+// 表單參數宣告
+// ===========================================================================
+
+// ===========================================================================
+// 資料列表參數宣告
+// ===========================================================================
+
+?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************程式邏輯演算********************************* ?>
+<?
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tp.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>WildBreeze</title>
+<!-- InstanceEndEditable -->
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(images/bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+}
+</style>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!-- InstanceParam name="top" type="boolean" value="true" -->
+<!-- InstanceParam name="copyright" type="boolean" value="true" -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script type="text/javascript" src="switchmenu.js"></script> 
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top" style="background:url(images/bg.jpg) repeat-x top center"><table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+      
+      <tr>
+        <td align="center"><table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="300" rowspan="2" align="left" valign="bottom"><a href="index.html"><img src="images/index.png" alt="" width="300" height="70" border="0" /></a></td>
+            <td align="right" valign="middle" class="top_txt5a4f3f"><?php HeadLink();?></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle"><?php HeadMemberAndCart();?></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" valign="bottom"><object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="55">
+              <param name="movie" value="swf/menu.swf" />
+              <param name="quality" value="high" />
+              <param name="wmode" value="transparent" />
+              <param name="swfversion" value="6.0.65.0" />
+              <!-- 此 param 標籤會提示使用 Flash Player 6.0 r65 和更新版本的使用者下載最新版本的 Flash Player。如果您不想讓使用者看到這項提示，請將其刪除。 -->
+              <param name="expressinstall" value="Scripts/expressInstall.swf" />
+              <!-- 下一個物件標籤僅供非 IE 瀏覽器使用。因此，請使用 IECC 將其自 IE 隱藏。 -->
+              <!--[if !IE]>-->
+              <object type="application/x-shockwave-flash" data="swf/menu.swf" width="900" height="55">
+                <!--<![endif]-->
+                <param name="quality" value="high" />
+                <param name="wmode" value="transparent" />
+                <param name="swfversion" value="6.0.65.0" />
+                <param name="expressinstall" value="Scripts/expressInstall.swf" />
+                <!-- 瀏覽器會為使用 Flash Player 6.0 和更早版本的使用者顯示下列替代內容。 -->
+                <div>
+                  <h4>這個頁面上的內容需要較新版本的 Adobe Flash Player。</h4>
+                  <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="取得 Adobe Flash Player" width="112" height="33" /></a></p>
+                </div>
+                <!--[if !IE]>-->
+              </object>
+              <!--<![endif]-->
+            </object></td>
+          </tr>
+        </table></td>
+      </tr>
+      
+      <tr>
+        <td align="center" valign="top"><!-- InstanceBeginEditable name="content" --><SCRIPT src="javascript/submenu.js"    type=text/javascript></SCRIPT>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td align="center" valign="middle"><table width="900" border="0" align="center" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td height="5"><img src="images/li.png" alt="" width="1" height="1" /></td>
+                </tr>
+                <tr>
+                  <td align="center" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr valign="bottom">
+                      <td width="15" height="15" align="right"><img src="images/log_bg_01.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_02.png) repeat-x bottom">&nbsp;</td>
+                      <td width="15" align="left"><img src="images/log_bg_03.png" alt="" width="15" height="15" /></td>
+                      </tr>
+                    <tr>
+                      <td align="right" style="background:url(images/log_bg_04.png) no-repeat right top">&nbsp;</td>
+                      <td height="200" valign="top" bgcolor="#FFFFFF" style="background:url(images/log_bg_05.png) repeat-x"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="30" align="left" valign="top"><img src="images/title-12.png" alt="" width="174" height="21" /></td>
+                          </tr>
+                        <tr>
+                          <td height="30" align="left" valign="middle" class="top_txt5a4f3f">&nbsp;</td>
+                          </tr>
+                        <tr>
+                          <td align="center" valign="top"><table cellspacing="0" cellpadding="0" width="100%" border="0">
+                            <tbody>
+                              <!-- <tr>
+                                <td align="center" valign="middle"><table cellspacing="1" cellpadding="5" width="95%" border="0">
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" valign="middle" bgcolor="#D3C1A9" class="title_5a4f3f" style=" border-bottom:1px dotted #666666"><span class="shop_itemtitle16B_920783" id="bar1" style="CURSOR: hand" onclick="menuclick(submenu1, bar1 );">網路門市-退換貨流程 [2009/03/30]</span></td>
+                                      </tr>
+                                    <tr id="submenu1" style="DISPLAY: none">
+                                      <td valign="top" bgcolor="#F1EDE5"><table width="100%" border="0" cellpadding="5" cellspacing="10">
+                                        <tbody>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧顧客權益須知
+                                              </span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="top_txt60412F">本公司所經銷商品，依各原供應商（製造商或代理商）之維修服務或保固條款，為本公司經銷商品的服務依據。</span></div></td>
+                                          </tr>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧商品銷售 </span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="top_txt60412F">一、本公司商品銷售價款僅涵蓋商品本身，恕不包含非故障換貨、安裝、測試、運送等服務費用。
+                                                <br />
+                                                <br />
+                                                
+                                                二、如需本公司代為訂購商品，須先給付銷售總額10%~50%之訂金，交貨時訂金即抵充該比例之貨價。但如因顧客個人因素致訂購錯誤商品者，訂金恕不退回，移作商品銷退處理費。
+  <br />
+  <br />
+                                                
+                                                三、如有訂貨，買方應於訂定之交貨日期或依本公司通知取回貨品，並付清款項。若須延期請事先告知，並以七日為限。<br />
+  <br />
+                                                
+                                                四、如需本公司代為進行安裝或檢測服務，依公告價目收取代客服務費用。
+  <br />
+  <br />
+                                                
+                                                五、由於不同廠商生產之貨品未必能夠相互匹配，故若對商品規格不瞭解或對相容性有疑問，請向本公司服務人員洽詢或與廠商聯絡後再行購買。
+  <br />
+  <br />
+                                                
+                                                六、商品使用前請先閱讀使用說明書，專業性使用問題可先洽供應商（製造商或代理商）之服務專線。若無供應商服務專線，請電洽本公司專業人員為您服務。
+  <br />
+  <br />
+                                                
+                                                七、 商品購回後請妥善使用、保存，若有原廠保證書，在保固期內需妥為保管，外包裝盒亦請保留，以因應快速換貨或送修之需要。
+  <br />
+  <br />
+                                                
+                                                八、 本公司所經銷商品之供應商（製造商或代理商）如因故結束營業或退出市場，因本公司為經銷性質，得依原廠或供應商的處理方式，作為本公司後續售後服務處理原則。</span></div></td>
+                                          </tr>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧商品退換 </span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="top_txt60412F">一、商品如購買前即有瑕疵、故障、品質不良等情事，或經洽詢本公司人員後始購買，但仍發生規格不合或相容性問題，</span><span class="root_red">請在收到商品十五天內，退貨時請事先來電洽本公司</span><span class="top_txt60412F">。<br />
+  <br />
+                                                
+                                                
+                                                二、 退換貨時需保持商品完整及配件包裝、標籤吊牌齊全，以能夠順利退還原廠商為原則。商品主體及其內容物（如各項零附件、包裝盒、包裝袋、手冊、贈品……等），均不可短缺、破損、書寫文字或標記，亦不可有因使用或安裝錯誤而造成之破壞（如刮痕、扭曲、破裂、摔傷、電路燒毀、擠壓變形、異物進入、商品條碼或保固標籤損毀、移除、變造重貼或無法辨識……等），以及任何目視可見之人為損傷。
+                                                <br />
+  <br />
+                                                
+                                                三、 個人服裝、鞋帽、清潔保養用品、寢具、食物、燃料等商品，以及原裝商品、代客訂購或另行聲明之商品，一經拆封、使用或清洗，恕不接受退換。<br />
+  <br />
+                                                
+                                                
+                                                四、 個人貼身衣物如內衣、內褲.....等，基於衛生問題，如非產品本身瑕疵，本店恕無法接受退換貨。<br />
+  <br />
+                                                
+                                                
+                                                五、 如因使用期望、主觀意識……等非功能故障因素而致購買後不滿意者，恕本公司無法受理退換貨。<br />
+  <br />
+                                                
+                                                
+                                                六、 如因使用前未詳閱各商品使用說明書致造成無法使用、毀損……等問題，恕本公司無法受理退換貨。<br />
+  <br />
+                                                
+                                                
+                                                七、 至店面退換貨，</span><span class="root_red">請攜帶原開立發票、原購買商品，另外，務必事先來電與本公司服務人員確認</span><span class="top_txt60412F"><br />
+  <br />
+                                                  
+                                                  
+                                                  八、 關於退換貨運費部分，除了是我們造成的錯誤使得您必須退換貨外，其它情況的退換貨往返之運費請您支付<br />
+  <br />
+                                                  
+                                                  
+                                                  九、 關於退換貨款項部分：<br />
+                                                  
+                                                  1. 若您以「信用卡付款」，請將購買商品寄回至本公司，在確認商品驗退無誤後，將採用退刷方式直接將款項退回您信用卡帳上
+                                                  <br />
+                                                  2. 若您以「ATM轉帳、貨到付款」，請將購買商品寄回至本公司，申請退換貨同時，請留下您個人帳戶資料，在確認商品驗退無誤後，我們將採用轉帳直接將款項退回您的帳戶裡</span></div></td>
+                                          </tr>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧送修服務 </span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="top_txt60412F">一、本公司所經銷商品均由原供應商（製造商或代理商）負責維修保固，由本公司提供代辦送修服務。其保固期限、故障因素判定、維修時程及處理費用均依原供應商（製造商或代理商）規定及既有程序辦理，並於原供應商（製造商或代理商）完修送回後，立即通知客戶前來取件。
+ <br />
+<br />
+
+二、送修品請以原廠包裝材料或安全包材妥善包裝，以確保運送過程之安全。
+<br />
+<br />
+ 
+三、原供應商（製造商或代理商）對保固期內之產品提供維修服務，並得全權決定以零件修理或同級良品更換；如該型產品已停產、缺料，則原供應商（製造商或代理商）得以相近規格或更高規格之良品更換並酌收差價，且故障之零件或原故障產品由原供應商（製造商或代理商）收回。
+<br />
+<br />
+ 
+四、超過保固期限之商品，送廠維修所有費用均由買方支付。
+<br />
+<br />
+ 
+五、對於產品送修期間因無法使用該項產品所造成之不便，本公司及原供應商（製造商或代理商）謹致歉意，但恕無法提供代用品。
+<br />
+<br />
+ 
+六、送修品之保管期間，為自送修日起至完修通知顧客取回之日後一個月止，逾期未取者視同自願捨棄，本公司將不再負保管之責並自行處理。
+<br />
+<br />
+ 
+七、除外責任：以下內容均不在保固範圍內，如有相關維修請求，本公司或原供應商（製造商或代理商）得酌收費用或不予受理。
+<br />
+1. 人為損壞--包含因使用錯誤而生之破壞、刮痕、摔傷、電路燒毀、擠壓變形、異物進入、商品條碼或保固標籤被損毀、移除、變造重貼或無法辨識……等，以及任何目視可見之人為損傷。
+<br />
+2.非經本公司授權之修理--包含無授權廠商或客戶之拆卸、修理、改裝、拆修。
+<br />
+3.不可抗拒之天災地變--如雷擊、火災、地震、水患……等。
+<br />
+<br />
+ 
+本發票如經塗改即屬無效。若有開列錯誤，請於5日內來電通知修改，逾期恕不受理。
+</span></div></td>
+                                          </tr>
+                                          </tbody>
+                                        </table></td>
+                                      </tr>
+                                    </tbody>
+                                  </table></td>
+                              </tr>
+                              <tr>
+                                <td height="5" align="center" valign="middle"><img src="images/li.png" width="1" height="1" /></td>
+                              </tr>
+                              <tr>
+                                <td align="center" valign="middle"><table cellspacing="1" cellpadding="5" width="95%" border="0">
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" valign="middle" bgcolor="#D3C1A9" class="title_5a4f3f" style=" border-bottom:1px dotted #666666"><span class="shop_itemtitle16B_920783" id="bar2" style="CURSOR: hand" onclick="menuclick(submenu2, bar2 );">購物流程說明</span></td>
+                                      </tr>
+                                    <tr id="submenu2" style="DISPLAY: none">
+                                      <td valign="top" bgcolor="#F1EDE5"><table width="100%" border="0" cellpadding="5" cellspacing="10">
+                                        <tbody>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧購物流程說明</span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="txt13_313131">第一次購物：</span><span class="top_txt60412F">選擇商品＞加入購物車＞選擇結帳方式＞填寫相關資料＞完成購物<br />
+                                              </span><span class="txt13_313131">非第一次購物：</span><span class="top_txt60412F">選擇商品＞加入購物車＞選擇結帳方式＞輸入帳號密碼＞完成購物</span>
+                                              </div></td>
+                                            </tr>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧如何查詢目前訂單的處理情況？</span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="top_txt60412F">請點選「訂單查詢」，輸入您的E-mail及密碼登入後，即可查詢該訂單的處理狀態。</span></div></td>
+                                          </tr>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧下次再買功能</span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="txt13_313131">第一次購物：</span><span class="top_txt60412F">選擇商品＞加入購物車＞點選下次再買按鈕＞填寫相關資料＞回到購物車點選下次再買按鈕＞完成下次再買。<br />
+                                              </span><span class="txt13_313131">非第一次購物：</span><span class="top_txt60412F">選擇商品尺寸＞加入購物車＞點選下次再買按鈕＞輸入帳號密碼＞回到購物車點選下次再買按鈕＞完成下次再買。<br />
+
+※下次再買功能，僅提供記憶喜愛商品，並無保留商品庫存功能喔。</span> </div></td>
+                                            </tr>
+                                          </tbody>
+                                        </table></td>
+                                      </tr>
+                                    </tbody> 
+                                  </table></td>
+                              </tr>-->
+
+
+
+
+                              <tr>
+                                <td height="5" align="center" valign="middle"><img src="images/li.png" alt="" width="1" height="1" /></td>
+                              </tr>
+                              <tr>
+                                <td align="center" valign="middle"><table cellspacing="1" cellpadding="5" width="95%" border="0">
+<?php
+
+
+	$i=0;
+	$sSQL="select * from shoppingdescriptionclass ";
+	$result=GetRs($sSQL);
+	
+while($rew=mysql_fetch_array($result)){
+
+
+
+
+?>
+
+
+
+                                  <tbody>
+                                    <tr>
+                                      <td align="left" valign="middle" bgcolor="#D3C1A9" class="title_5a4f3f" style=" border-bottom:1px dotted #666666"><span class="shop_itemtitle16B_920783" id="bar<?php echo $i; ?>" style="CURSOR: hand" onclick="menuclick(submenu<?php echo $i; ?>, bar<?php echo $i; ?> );"><?php echo $rew['sdc02']?></span></td>
+                                    </tr>
+                                    <tr id="submenu<?php echo $i; ?>" style="DISPLAY: none">
+                                      <td valign="top" bgcolor="#F1EDE5"><table width="100%" border="0" cellpadding="5" cellspacing="10">
+                                       
+<?php
+$i++;
+$sSQL1="select * from shoppingdescription where sdc01='".$rew['sdc01']."'  ";
+	$result1=GetRs($sSQL1);
+while($rew1=mysql_fetch_array($result1)){
+
+?>
+ <tbody>
+                                          <tr valign="top">
+                                            <td align="left" style=" border-bottom:1px dotted #666666"><span class="member_name">‧<?php echo $rew1['sd02']?></span><br />
+                                              <div style="padding-left:15px; padding-top:5px"><span class="top_txt60412F"><?php echo $rew1['sd03']?>
+																							</span></div></td>
+                                          </tr>
+</tbody>
+<?php
+}
+?>
+
+                                        
+                                      </table></td>
+                                    </tr>
+                                  </tbody>
+
+<?php
+}
+?>
+
+
+
+
+
+                                </table></td>
+                              </tr>
+                            </tbody>
+                          </table></td>
+                        </tr>
+                        </table></td>
+
+
+
+                      <td align="left" style="background:url(images/log_bg_06.png) no-repeat left top">&nbsp;</td>
+                      </tr>
+                    <tr valign="top">
+                      <td height="15" align="right"><img src="images/log_bg_07.png" alt="" width="15" height="15" /></td>
+                      <td style="background:url(images/log_bg_08.png) top repeat-x">&nbsp;</td>
+                      <td align="left"><img src="images/log_bg_09.png" alt="" width="15" height="15" /></td>
+                      </tr>
+                  </table></td>
+                  </tr>
+                <tr>
+                  <td height="15"><img src="images/li.png" alt="" width="1" height="1" /></td>
+                </tr>
+              </table></td>
+            </tr>
+            </table>
+        <!-- InstanceEndEditable --></td>
+      </tr>
+      
+      <tr>
+        <td align="center"><table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="5" colspan="2" align="left" valign="middle"><img src="images/li.png" alt="" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td height="5" colspan="2" align="left" valign="middle" style="border-top:#5a4f3f 1px solid"><img src="images/li.png" alt="" width="1" height="1" /></td>
+            </tr>
+          <tr>
+            <td align="left" valign="middle" class="top_txt5a4f3f">戶外玩家有限公司 版權所有 © 2010 Wild Breeze All Rights Reserved. 最佳瀏覽器IE7.0以上<br />
+              服務電話：(02)8512-1882    傳真電話：(02)8512-2836    地址：台北縣三重市重新路五段639號1樓 </td>
+            <td width="130" align="right" valign="middle"><img src="images/logo.png" width="130" height="50" /></td>
+          </tr>
+        </table></td>
+      </tr>
+      
+    </table></td>
+  </tr>
+</table>
+<script type="text/javascript">
+swfobject.registerObject("FlashID");
+</script>
+</body>
+<!-- InstanceEnd --></html>

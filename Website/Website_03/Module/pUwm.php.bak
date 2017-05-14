@@ -1,0 +1,74 @@
+<?php //*********************************模組檔案引入********************************* ?>
+<?php 
+include("pModule.php");          //引入總模組
+?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************登入相關函數********************************* ?>
+<?php
+function GetMemID() {
+	return $_SESSION["MemID"];
+}
+
+function GetMemPwd() {
+	return $_SESSION["MemPwd"];
+}
+
+function GetMemName() {
+	return $_SESSION["MemName"];
+}
+
+//session 登入為true，沒登入為false
+function IsLogin() {
+	$bResult=false;
+	if (Trim(GetMemID())=="") {
+		$bResult=false;
+	} else {
+		$bResult=true;
+	}
+	return $bResult;
+}
+
+function ChkLogin() {
+	if (IsLogin()==false) {
+		$sUrl="http://".GetServerHostName()."/".GetPathProjectV()."index.php";
+		//uLog("sUrl == ".$sUrl);
+		header("location:".$sUrl);
+	}
+}
+
+?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************共通頁面相關函數********************************* ?>
+<?php
+
+?>
+<?php //********************************************************************************** ?>
+
+<?php //*********************************David 函數********************************* ?>
+<?php
+function jsAlert($sMsg) {
+	echo '<script language="javascript">
+			alert("'.$sMsg.'");
+		 </script>';
+
+}
+function jsHref($sURL) {
+	echo '<script language="javascript">
+			location.href="'.$sURL.'";
+		 </script>';
+}
+function jsBack() {
+	echo '<script language="javascript">
+			history.back();
+		 </script>';
+}
+
+?>
+<?php //****************************************************************************** ?>
+<?php //*********************************Ext Js 共用欄位函數********************************* ?>
+<?php
+
+?>
+<?php //************************************************************************************* ?>

@@ -1,0 +1,93 @@
+<!-- Do NOT put any DOCTYPE here unless you want problems in IEs. -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title id='title'>HTML Page setup Tutorial</title>
+
+	<!-- ** CSS ** -->
+	<!-- base library -->
+	<link rel="stylesheet" type="text/css" href="resources/css/ext-all.css" />
+
+	<!-- ** Javascript ** -->
+	<!-- ExtJS library: base/adapter -->
+	<script type="text/javascript" src="adapter/ext/ext-base.js"></script>
+	<!-- ExtJS library: all widgets -->
+	<script type="text/javascript" src="ext-all-debug.js"></script>
+
+
+	<!-- overrides to base library -->
+
+
+	<!-- ** Javascript ** -->
+	<!-- ExtJS library: base/adapter -->
+
+	<!-- ExtJS library: all widgets -->
+
+
+	<!-- overrides to base library -->
+
+	<!-- extensions -->
+
+	<!-- page specific -->
+
+	<script type="text/javascript">
+	// Path to the blank image should point to a valid location on your server
+	Ext.BLANK_IMAGE_URL = 'resources/images/default/s.gif';
+	Ext.onReady(function(){
+
+		//console.info('woohoo!!!');
+
+	var simple = new Ext.form.FormPanel({
+ 
+ 
+        standardSubmit: true,
+ 
+ 
+        frame:true,
+        title: '註冊',
+ 
+        width: 350,
+        defaults: {width: 230},
+        defaultType: 'textfield',
+		items: [{
+                fieldLabel: '使用者名稱',
+                name: 'username',
+                allowBlank:false
+            },
+			{
+                inputType: 'hidden',
+                id: 'submitbutton',
+                name: 'myhiddenbutton',
+                value: 'hiddenvalue'
+            }
+ 
+        ],
+        buttons: [{
+            text: '送出資料',
+            handler: function() {
+		simple.getForm().getEl().dom.action = 'test.php';
+	        simple.getForm().getEl().dom.method = 'POST';
+                simple.getForm().submit();
+            }
+        }]
+ 
+ 
+    });
+ 
+ 
+ 
+    simple.render('mytraditionalform');
+
+
+	}); //end onReady
+	</script>
+
+
+
+</head>
+<body>
+
+<div id="mytraditionalform"></div>
+
+</body>
+</html>

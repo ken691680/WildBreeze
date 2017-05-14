@@ -1,0 +1,15 @@
+#
+#	Merchant Configuration
+#
+StoreID=60593
+#RSAName=C:/RSA/XXXXX.DER
+RSAName=D:/Project/Tommy/WildBreeze/Website/Website_02/RSA/60593.DER
+#	Field default value
+Deposit=0
+QueryFlag=1
+Currency=NTD
+OrderDesc=defult-desc
+ReturnURL=http://localhost/WildBreeze_02/B2C_Return.php
+UpdateURL=http://localhost/WildBreeze_02/B2C_Update.php
+60593.DER
+#	System pararmeter value

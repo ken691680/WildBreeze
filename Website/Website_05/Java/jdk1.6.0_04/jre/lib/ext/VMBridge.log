@@ -1,0 +1,30 @@
+Sep 05 04:48:29 VMBridge INFO : VM                  : 1.6.0_27@http://java.sun.com/
+Sep 05 04:48:29 VMBridge INFO : VMBridge version             : 5.2.2    
+Sep 05 04:48:29 VMBridge INFO : logFile             : VMBridge.log
+Sep 05 04:48:29 VMBridge INFO : default logLevel    : 3
+Sep 05 04:48:29 VMBridge INFO : socket              : SERVLET_LOCAL:8080
+Sep 05 04:48:29 VMBridge INFO : java.ext.dirs       : C:\Program Files (x86)\Java\jre6\lib\ext;C:\Windows\Sun\Java\lib\ext
+Sep 05 04:48:29 VMBridge INFO : php.java.bridge.base: C:\Users\David
+Sep 05 04:48:29 VMBridge INFO : thread pool size    : 20
+Sep 05 04:48:29 VMBridge INFO : JavaBridgeRunner started on port INET_LOCAL:8080
+java.lang.RuntimeException: java.net.BindException: Address already in use: JVM_Bind
+	at php.java.bridge.Standalone.init(Standalone.java:213)
+	at php.java.bridge.Standalone.main(Standalone.java:279)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.PlainSocketImpl.bind(Unknown Source)
+	at java.net.ServerSocket.bind(Unknown Source)
+	at java.net.ServerSocket.<init>(Unknown Source)
+	at php.java.bridge.TCPServerSocket.newServerSocket(TCPServerSocket.java:58)
+	at php.java.bridge.TCPServerSocket.<init>(TCPServerSocket.java:79)
+	at php.java.bridge.TCPServerSocket.create(TCPServerSocket.java:51)
+	at php.java.bridge.Standalone.bind(Standalone.java:75)
+	at php.java.bridge.JavaBridge.bind(JavaBridge.java:236)
+	at php.java.bridge.JavaBridgeRunner.bind(JavaBridgeRunner.java:156)
+	at php.java.bridge.http.HttpServer.<init>(HttpServer.java:90)
+	at php.java.bridge.JavaBridgeRunner.<init>(JavaBridgeRunner.java:78)
+	at php.java.bridge.JavaBridgeRunner.getRequiredStandaloneInstance(JavaBridgeRunner.java:132)
+	at php.java.bridge.JavaBridgeRunner.main(JavaBridgeRunner.java:534)
+	at php.java.bridge.Standalone.checkServlet(Standalone.java:236)
+	at php.java.bridge.Standalone.init(Standalone.java:199)
+	... 1 more

@@ -1,0 +1,20 @@
+# IP is used to indicate an alternative ip number to post http or https
+# data for required transactions. Domain name is OK, too.
+IP=testtrustpay.hitrust.com.tw
+
+# Port is used to indicate an alternative port number to post http or https
+# data for required transactions. This setting is 80 if the data is
+# being passed with HTTP, Otherwise the setting is 443 if the data is
+# being passed with HTTPS.
+Port=80
+
+# The name is Server RSA key file name.
+# RSAName=C:/RSA/PUB.DER
+# RSAName=/home/jobdone/public_html/wildbreeze/classpath/PUB.DER
+RSAName=D:/Project/Tommy/WildBreeze/Website/Website_02/RSA/60593.DER
+# The URL that will be sent to the Server on Authorization Transaction required. 
+AuthUrl=/TRUSTPAY/servlet/Verifyreq
+
+# The URL that will be sent to the Server on Other Transactions required 
+# (Authorization Reversal, Capture, Capture Reversal, Refund, Refund Reversal, Query)
+OtherUrl=/TRUSTPAY/servlet/TXService

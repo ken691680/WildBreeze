@@ -1,0 +1,129 @@
+<?php //*********************************模組檔案引入********************************* ?>
+<?php include("../../Module/pMwm.php"); ?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************前置變數定義********************************* ?>
+<?php
+// ===========================================================================
+// 初始化參數宣告
+// ===========================================================================
+ErrorReporting(E_ERROR | E_WARNING | E_PARSE);                    //錯誤回報控制 0關掉 E_ALL全部回報
+ChkLogin();                               //檢查是否登入
+
+// ===========================================================================
+// 接收參數宣告
+// ===========================================================================
+$FixDirectory=GetPathProject()."upload".GetLinking()."course".GetLinking();     //實體目錄位置
+uLog("FixDirectory == [".$FixDirectory."]");
+$_SESSION["NowPhysicalPath"]=$FixDirectory;
+
+$go01=$_POST["go01"];
+$go02=$_POST["go02"];
+$go03=$_POST["go03"];
+$go04=$_POST["go04"];
+$go05=$_POST["go05"];
+$go06=$_POST["go06"];
+$go07=$_POST["go07"];
+$go08=$_POST["go08"];
+$go09=$_POST["go09"];
+$go10=$_POST["go10"];
+$go11=$_POST["go11"];
+$go12=$_POST["go12"];
+$go13=$_POST["go13"];
+$gc01=$_POST["gc01"];
+$te01=$_POST["te01"];
+
+uLog("go01 == " . $go01);
+uLog("go02 == " . $go02);
+uLog("go03 == " . $go03);
+uLog("go04 == " . $go04);
+uLog("go05 == " . $go05);
+uLog("go06 == " . $go06);
+uLog("go07 == " . $go07);
+uLog("go08 == " . $go08);
+uLog("go09 == " . $go09);
+uLog("go10 == " . $go10);
+uLog("go11 == " . $go11);
+uLog("go12 == " . $go12);
+uLog("go13 == " . $go13);
+uLog("gc01 == " . $gc01);
+uLog("te01 == " . $te01);
+
+// ===========================================================================
+// 表單參數宣告
+// ===========================================================================
+
+// ===========================================================================
+// 資料列表參數宣告
+// ===========================================================================
+
+?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************程式邏輯演算********************************* ?>
+<?php
+if (IsSnoExist($go01)) {
+	echo '{success:false}';
+} else {
+	$sRndName=GetDateTimeCE().GetMicroTime();
+	$sUserfileName=iconv("UTF-8", "big5", $_FILES['go10']['name']);
+	uLog("sUserfileName == [".$sUserfileName."]");
+	$sgo10="";
+
+	if (Trim($sUserfileName)!="") {
+		if (FileExist($_SESSION["NowPhysicalPath"].$sUserfileName)){ //假如檔案重覆，則更新失敗
+			$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]重覆，請重新命名後再上傳！\\r\\n";
+		} else { //假如檔名不重覆，上傳新檔
+			if (move_uploaded_file($_FILES['go10']['tmp_name'], $_SESSION["NowPhysicalPath"].$sRndName.iconv("UTF-8", "big5", LCase(iconv("BIG5", "UTF-8", $sUserfileName))))) {
+				$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳成功！\\r\\n";
+				$sgo10=$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")));
+			} else {
+				$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳失敗，發生不明原因，請告知系統管理員！\\r\\n";
+			}
+		}
+	}
+
+	$sRndName=GetDateTimeCE().GetMicroTime();
+	$sUserfileName=iconv("UTF-8", "big5", $_FILES['go11']['name']);
+	uLog("sUserfileName == [".$sUserfileName."]");
+	$sgo11="";
+
+	if (Trim($sUserfileName)!="") {
+		if (FileExist($_SESSION["NowPhysicalPath"].$sUserfileName)){ //假如檔案重覆，則更新失敗
+			$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]重覆，請重新命名後再上傳！\\r\\n";
+		} else { //假如檔名不重覆，上傳新檔
+			if (move_uploaded_file($_FILES['go11']['tmp_name'], $_SESSION["NowPhysicalPath"].$sRndName.iconv("UTF-8", "big5", LCase(iconv("BIG5", "UTF-8", $sUserfileName))))) {
+				$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳成功！\\r\\n";
+				$sgo11=$sRndName.LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")));
+			} else {
+				$sMsg=$sMsg."檔案[".LCase(Trim(Replace(iconv("BIG5", "UTF-8", $sUserfileName), GetLinking(), "")))."]上傳失敗，發生不明原因，請告知系統管理員！\\r\\n";
+			}
+		}
+	}
+
+	$sSQL="insert into goods (go01, go02, go03, go04, go05, go06, go07, go08, go09, go10, go11, go12, go13, go14, go15, ma01, lasttime, gc01, te01) values ('".$go01."', '".$go02."', '".$go03."', '".$go04."', '".$go05."', '".$go06."', ".SafeInt($go07).", ".SafeInt($go08).", '".$go09."', '".$sgo10."', '".$sgo11."', '".$go12."', '".$go13."', 0, 0, '".GetManID()."', now(), '".$gc01."', '".$te01."');";
+	$rSQLExec=GetRs($sSQL);
+	echo '{success:true}';
+}
+
+?>
+<?php //**************************************************************************** ?>
+
+<?php //*********************************其它模組專區********************************* ?>
+<?php
+function IsSnoExist($sSno) {
+	$bResult=false;
+	
+	$sSQL="select * from goods where go01='".$sSno."';";
+	$rRs=GetRs($sSQL);
+	$iRsRows=mysql_num_rows($rRs);
+	if ($iRsRows>0) {
+		$bResult=true;
+	}
+	mysql_free_result($rRs);
+
+	return $bResult;
+}
+
+?>
+<?php //**************************************************************************** ?>
