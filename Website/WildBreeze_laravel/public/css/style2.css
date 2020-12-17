@@ -1,0 +1,109 @@
+BODY {
+        font:9pt "宋體";
+     }
+
+tr {
+        font:9pt "宋體";
+}
+
+td {
+        font:9pt "宋體";
+}
+
+INPUT.button {
+        BACKGROUND-COLOR: #f3f3f3; BORDER-BOTTOM:#000000 1px solid; BORDER-LEFT:silver 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-TOP: silver 1px solid; font:9pt "宋體"
+}
+
+INPUT.radio {
+        border:0;font:9pt "宋體";background:none;
+}
+
+button {
+        BACKGROUND-COLOR: #f3f3f3; BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: silver 1px solid; BORDER-RIGHT: #000000 1px solid; BORDER-TOP: silver 1px solid; font:9pt "宋體"
+}
+
+textarea {
+        BACKGROUND-COLOR: #f3f3f3; BORDER-BOTTOM: #333333 1px solid; BORDER-LEFT: #333333 1px solid; BORDER-RIGHT: #333333 1px solid; BORDER-TOP: #333333 1px solid; font:9pt "宋體"
+}
+SELECT {
+        BACKGROUND-COLOR: #f3f5dc; BORDER-BOTTOM: #333333 1px solid; BORDER-LEFT: #333333 1px solid; BORDER-RIGHT: #333333 1px solid; BORDER-TOP: #333333 1px solid; font:9pt "宋體"
+}
+
+hr {
+	Color: Silver
+}
+
+div {Color:#330066;font-size:9pt}
+
+INPUT {
+	BORDER-TOP-WIDTH: 1px; 
+	PADDING-RIGHT: 1px; 
+	PADDING-LEFT: 1px; 
+	BORDER-LEFT-WIDTH: 1px; 
+	FONT-SIZE: 9pt; 
+	BORDER-LEFT-COLOR: #cccccc; 
+	BORDER-BOTTOM-WIDTH: 1px; 
+	BORDER-BOTTOM-COLOR: #cccccc; 
+	PADDING-BOTTOM: 1px; 
+	BORDER-TOP-COLOR: #cccccc; 
+	PADDING-TOP: 1px; 
+	HEIGHT: 18px; 
+	BORDER-RIGHT-WIDTH: 1px; 
+	BORDER-RIGHT-COLOR: #cccccc
+}
+textarea, select {border-width: 1; border-color: #000000; background-color: #efefef; font-family: 宋體; font-size: 9pt; font-style: bold;}
+
+.allow {color: blue}	 
+.deny {color:red}
+.native {color:blue}
+.international {color:green}
+
+.normal {color: blue}
+.newreg {color: green}
+
+.yes {color: blue}
+.no {color: red}
+
+.info_title
+{
+	background-image: url(../images/ManageTheme/content_bg.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.list_title
+{
+	background-image: url(../images/ManageTheme/content_bg.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+
+.info_content {background: #F7F7F7}
+.list_content {background: #F7F7F7}
+
+.info_bottom
+{
+	background-image: url(../images/ManageTheme/content_bg.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.list_bottom
+{
+	background-image: url(../images/ManageTheme/content_bg.png);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+
+table
+{
+	color: #333333;
+	font-family : Arial, Helvetica, sans-serif;
+	word-wrap: none;
+	font-size: 11px;
+	height: 25px;
+	background-repeat: repeat;
+	background-color: #ffae;
+	color: #333333;
+	font-size: 11px;
+	text-align: left;
+	font-family : Arial, Helvetica, sans-serif;
+}
