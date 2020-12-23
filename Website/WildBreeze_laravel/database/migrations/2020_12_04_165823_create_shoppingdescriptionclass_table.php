@@ -16,7 +16,7 @@ class CreateShoppingDescriptionClassTable extends Migration
         Schema::create('shopping_description_class', function (Blueprint $table) {
             $table->bigIncrements('sdc01');
             $table->string('sdc02')->comment('類別名稱');
-            $table->string('ma01')->comment('帳號');
+            $table->string('user_id')->comment('帳號');
             $table->dateTime('lastTime')->comment('最後更新時間');
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ class CreateServiceRecordTable extends Migration
             $table->string('sr05')->comment('留言類型:商品退換貨，網友好評分享');
             $table->string('sr06')->comment('電子信箱');
             $table->string('sr07')->comment('姓名');
-            $table->string('me01')->comment('此為會員帳號');
+            $table->string('user_id')->comment('此為會員帳號');
             $table->dateTime('lastTime')->comment('最後更新時間');
             $table->timestamps();
         });

@@ -32,7 +32,7 @@ class CreateEventsTable extends Migration
             $table->string('ev16')->comment('戶名');
             $table->dateTime('ev17')->comment('上架時間');
             $table->dateTime('ev18')->comment('下架時間');
-            $table->string('ma01')->nullable()->comment('帳號');
+            $table->string('user_id')->nullable()->comment('帳號');
             $table->timestamp('lastTime')->comment('最後更新時間');
             $table->timestamps();
         });

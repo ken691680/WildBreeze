@@ -3,25 +3,26 @@
 <head>
     @include('layouts.head')
 </head>
-<body>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <td align="center" valign="top" style="background:url(images/bg.jpg) repeat-x top center">
-                <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
-                    @include('layouts.header')
+    <body>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="center" valign="top" style="background:url(images/bg.jpg) repeat-x top center">
+                    <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+                        @include('layouts.header')
 
-                    @yield('content')
+                        @yield('content')
 
-                    @include('layouts.footer')
-                </table>
-            </td>
-        </tr>
-    </table>
-    <script type="text/javascript">
-        swfobject.registerObject("FlashID");
-    </script>
-</body>
-@yield('script')
+                        @include('layouts.footer')
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            swfobject.registerObject("FlashID");
+        </script>
+    </body>
 </html>
+
+@yield('script')
 
 

@@ -19,7 +19,7 @@ class CreateMemberEvaluateTable extends Migration
             $table->text('mee03')->comment('好評內容');
             $table->string('mee04')->default('否')->comment('是否刪除:是，否');
             $table->string('mee05')->default('否')->comment('是否可登好評:是，否');
-            $table->string('me01')->comment('此為會員帳號');
+            $table->string('user_id')->comment('此為會員帳號');
             $table->dateTime('lastTime')->comment('最後更新時間');
             $table->timestamps();
         });

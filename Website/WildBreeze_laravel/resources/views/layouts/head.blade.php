@@ -1,4 +1,3 @@
-<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>WildBreeze</title>
@@ -14,13 +13,14 @@
 	background-position: center top;
 }
 </style>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
 <!-- InstanceParam name="top" type="boolean" value="true" -->
 <!-- InstanceParam name="copyright" type="boolean" value="true" -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
-<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
 <script type="text/javascript" src="switchmenu.js"></script>
+<script src="/js/jQuery.js"></script>
+
 <script type="text/javascript">
 function MM_preloadImages() { //v3.0
     var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
@@ -45,4 +45,4 @@ function MM_swapImage() { //v3.0
         if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 </script>
-</head>
+

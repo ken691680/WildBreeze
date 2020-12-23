@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@CSRF
     <tr>
         <td align="center" valign="top"><!-- InstanceBeginEditable name="content" -->
             <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -30,30 +31,36 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td height="75" align="center" valign="bottom"><table border="0" cellpadding="0" cellspacing="3">
+                                                        <td height="75" align="center" valign="bottom">
+                                                            <table border="0" cellpadding="0" cellspacing="3">
                                                                 <tr>
-                                                                    <td width="50" align="center" class="title_5a4f3f">帳號</td>
+                                                                    <td width="50" align="center"  class="title_5a4f3f">帳號</td>
                                                                     <td align="left">
                                                                         <label for="textfield"></label>
-                                                                        <input name="textfield" type="text" class="top_txt5a4f3f" id="textfield"  style="width:120px"/>
+                                                                        <input name="textfield" type="text" class="top_txt5a4f3f" id="email"  style="width:120px"/>
                                                                     </td>
-                                                                    <td width="65" rowspan="2" align="right" valign="middle">
-                                                                        <a href="javascript:void(0)"><img src="{{{ asset('images/log.jpg') }}}" alt="" width="54" height="40" border="0" />
+                                                                    <td width="65" rowspan="2" align="right"   valign="middle">
+                                                                        <a href="javascript:void(0)" id="login_btn" >
+                                                                            <img src="{{{ asset('images/log.jpg') }}}" alt="" width="54" height="40" border="0" />
                                                                         </a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td align="center" class="title_5a4f3f">密碼</td>
-                                                                    <td align="left"><input name="textfield2" type="text" class="top_txt5a4f3f" id="textfield2"  style="width:120px"/></td>
+                                                                    <td align="left">
+                                                                        <input name="textfield2" type="password" class="top_txt5a4f3f" id="password"  style="width:120px"/>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td align="right" class="title_5a4f3f">&nbsp;</td>
-                                                                    <td height="23" align="left" valign="bottom"><a href="javascript:void(0)" class="top_txt5a4f3f_a">忘記密碼</a>　
+                                                                    <td height="23" align="left" valign="bottom">
+                                                                        <a href="javascript:void(0)" class="top_txt5a4f3f_a">忘記密碼</a>　
                                                                         <input name="checkbox" type="checkbox" class="top_txt5a4f3f" id="checkbox" />
                                                                         <span class="top_txt5a4f3f">記住我</span></td>
                                                                     <td align="right" valign="middle">&nbsp;</td>
                                                                 </tr>
-                                                            </table></td>
+                                                            </table>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -67,10 +74,13 @@
                                                 <img src="{{{ asset('images/log_bg_09.png') }}}" width="15" height="15" />
                                             </td>
                                         </tr>
-                                    </table></td>
+                                    </table>
+                                </td>
                             </tr>
                             <tr>
-                                <td height="15"><img src="{{{ asset('images/li.png') }}}" alt="" width="1" height="1" /></td>
+                                <td height="15">
+                                    <img src="{{{ asset('images/li.png') }}}" alt="" width="1" height="1" />
+                                </td>
                             </tr>
                         </table>
                     </td>
@@ -80,5 +90,49 @@
         </td>
     </tr>
 @endsection
+
 @section('script')
+    <script>
+        var rememberMe = false;
+
+        $('#login_btn').click(function (){
+
+            if($('#email').val() == "") {
+                alert('email error');
+                return;
+            }
+
+            if($('#password').val() == "") {
+                alert('password error');
+                return;
+            }
+
+            if ($('input:checkbox').attr("checked", true)) {
+                rememberMe = true;
+            }
+
+            var data = {
+                '_token': $("input[name='_token']").val(),
+                'email': $('#email').val(),
+                'password': $('#password').val(),
+                'remember_me': rememberMe
+            };
+
+            $.ajax({
+                url: "{{ route('login') }}",
+                type: 'POST',
+                data: data,
+
+                success: function (r) {
+
+                },
+
+                err: function () {
+
+                }
+            })
+
+
+        });
+    </script>
 @endsection

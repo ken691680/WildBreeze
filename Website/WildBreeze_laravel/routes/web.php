@@ -12,4 +12,7 @@
 */
 
 Route::get('/', 'Controller@showIndex');
-Route::get('/login', 'Auth\LoginController@showLogin' )->name('loginForm');
+Route::get('/login', 'Auth\LoginController@showLoginForm' )->name('loginForm');
+Route::post('/login', 'Auth\LoginController@memberLogin')->name('login');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('registrationForm');
+Route::post('/register', 'Auth\RegisterController@registerProcess')->name('register');
