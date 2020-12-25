@@ -55,7 +55,7 @@
                                                                     <td align="right" class="title_5a4f3f">&nbsp;</td>
                                                                     <td height="23" align="left" valign="bottom">
                                                                         <a href="javascript:void(0)" class="top_txt5a4f3f_a">忘記密碼</a>　
-                                                                        <input name="checkbox" type="checkbox" class="top_txt5a4f3f" id="checkbox" />
+                                                                        <input name="checkbox" type="checkbox" class="top_txt5a4f3f" id="remember_me" />
                                                                         <span class="top_txt5a4f3f">記住我</span></td>
                                                                     <td align="right" valign="middle">&nbsp;</td>
                                                                 </tr>
@@ -107,15 +107,11 @@
                 return;
             }
 
-            if ($('input:checkbox').attr("checked", true)) {
-                rememberMe = true;
-            }
-
             var data = {
                 '_token': $("input[name='_token']").val(),
                 'email': $('#email').val(),
                 'password': $('#password').val(),
-                'remember_me': rememberMe
+                'remember_me': $("#remember_me").prop('checked')
             };
 
             $.ajax({
@@ -124,11 +120,9 @@
                 data: data,
 
                 success: function (r) {
-
                 },
 
-                err: function () {
-
+                err: function (e) {
                 }
             })
 

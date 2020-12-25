@@ -30,6 +30,7 @@ class LoginController extends Controller
      */
 
     protected $redirectTo = '/';
+    private  $cookieTime = 86400;
 
     /**
      * Create a new controller instance.
@@ -48,11 +49,22 @@ class LoginController extends Controller
 
     public function memberLogin(Request $request)
     {
+
         $this->validateLogin($request);
 
         if ($this->attemptLogin($request)) {
 
-            $this->sendFailedLoginResponse($request);
+            if ($request['remember_me']) {
+                setrawcookie('email', $request->post('email'), time() + $this->cookieTime, '/');
+            } else {
+                setrawcookie('email', Null, time() - 3600, '/');
+            }
+
+            return
+                response()->json([
+                    'code' => '200',
+                    'msg' => 'success login',
+                ], 200);
         }
 
         return $this->sendFailedLoginResponse($request);
