@@ -59,7 +59,8 @@
                                                                 <tr>
                                                                     <td width="100" align="center" valign="middle" class="title_5a4f3f">設定密碼</td>
                                                                     <td align="left" valign="middle" class="top_txt5a4f3f">
-                                                                        <input name="password" type="password" class="top_txt5a4f3f" id="password"  style="width:120px"/></td>
+                                                                        <input name="password" type="password" class="top_txt5a4f3f" id="password"  style="width:120px"/>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td width="100" align="center" valign="middle" class="title_5a4f3f">確認密碼</td>
@@ -176,11 +177,16 @@
               data: data,
 
               success: function (r){
-
+                  if (r.code == 200) {
+                      alert(r.msg);
+                      location.href="/";
+                  } else {
+                      alert(r.msg);
+                  }
               },
 
               error: function (e){
-
+                console.log(e);
               }
           })
       })

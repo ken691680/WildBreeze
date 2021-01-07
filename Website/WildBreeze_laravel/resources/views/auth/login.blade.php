@@ -37,7 +37,7 @@
                                                                     <td width="50" align="center"  class="title_5a4f3f">帳號</td>
                                                                     <td align="left">
                                                                         <label for="textfield"></label>
-                                                                        <input name="textfield" type="text" class="top_txt5a4f3f" id="email"  style="width:120px"/>
+                                                                        <input name="textfield" type="text" @if (!empty( $_COOKIE['email'])) value="{{ $_COOKIE['email'] }}" @endif class="top_txt5a4f3f" id="email"  style="width:120px"/>
                                                                     </td>
                                                                     <td width="65" rowspan="2" align="right"   valign="middle">
                                                                         <a href="javascript:void(0)" id="login_btn" >
@@ -54,7 +54,7 @@
                                                                 <tr>
                                                                     <td align="right" class="title_5a4f3f">&nbsp;</td>
                                                                     <td height="23" align="left" valign="bottom">
-                                                                        <a href="javascript:void(0)" class="top_txt5a4f3f_a">忘記密碼</a>　
+                                                                        <a href="/forget_password" id="forgot_password_btn" class="top_txt5a4f3f_a">忘記密碼</a>　
                                                                         <input name="checkbox" type="checkbox" class="top_txt5a4f3f" id="remember_me" />
                                                                         <span class="top_txt5a4f3f">記住我</span></td>
                                                                     <td align="right" valign="middle">&nbsp;</td>
@@ -111,7 +111,7 @@
                 '_token': $("input[name='_token']").val(),
                 'email': $('#email').val(),
                 'password': $('#password').val(),
-                'remember_me': $("#remember_me").prop('checked')
+                'remember_me': $("#remember_me").prop('checked') === true ? 1 : 0
             };
 
             $.ajax({
@@ -120,13 +120,18 @@
                 data: data,
 
                 success: function (r) {
+                    if (r.code == 200) {
+                        alert(r.msg);
+                        location.href="/";
+                    } else {
+                        alert(r.msg);
+                    }
                 },
-
                 err: function (e) {
+                    console.log(e);
                 }
             })
-
-
         });
+
     </script>
 @endsection

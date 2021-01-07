@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('new_latter')->nullable()->comment('是否願意收到電子報');
             $table->timestamp('joinTime')->comment('加入時間');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

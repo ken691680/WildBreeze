@@ -7,8 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\RegisterMessage;
+use App\Infra\Services\MemberService;
 
 class RegisterController extends Controller
 {
@@ -31,15 +34,17 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    private $memberService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(MemberService $memberService)
     {
         $this->middleware('guest');
+        $this->memberService = $memberService;
     }
 
     /**
@@ -65,20 +70,29 @@ class RegisterController extends Controller
 
     public function registerProcess(Request $request) {
 
-        $this->validator($request->all())->validate();
+        if (!empty($this->memberService->getMember($request['email']))) {
 
-        event(new Registered($user = $this->create($request->all())));
+            return response()->json([
+                'code' => '400',
+                'msg' => '此郵件已被註冊',
+            ], 200);
+        } else {
 
-        $this->guard()->login($user);
+            $this->validator($request->all())->validate();
 
-        return response()->json([
-            'code' => '200',
-            'msg' => 'register success',
-        ], 200);
+            event(new Registered($user = $this->create($request->all())));
 
+            $this->guard()->login($user);
+
+            Mail::to($request['email'])->send(new RegisterMessage($request));
+
+            return response()->json([
+                'code' => '200',
+                'msg' => 'register success',
+            ], 200);
+        }
     }
-
-
+    
     protected function create(array $data)
     {
         return Users::create([
@@ -88,4 +102,5 @@ class RegisterController extends Controller
             'gender' =>  $data['gender'],
         ]);
     }
+
 }

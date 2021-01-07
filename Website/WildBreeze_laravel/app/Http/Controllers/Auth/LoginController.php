@@ -67,7 +67,12 @@ class LoginController extends Controller
                 ], 200);
         }
 
-        return $this->sendFailedLoginResponse($request);
+//        return $this->sendFailedLoginResponse($request);
 
+        return
+            response()->json([
+                'code' => '404',
+                'msg' => 'error login',
+            ], 200);
     }
 }
