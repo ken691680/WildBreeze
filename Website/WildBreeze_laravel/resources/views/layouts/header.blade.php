@@ -1,29 +1,52 @@
 <tr>
-    <td align="center"><table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+    <td align="center">
+        <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="300" rowspan="2" align="left" valign="bottom"><a href="index.html"><img src="images/index.png" alt="" width="300" height="70" border="0" /></a></td>
-                <td align="right" valign="middle" class="top_txt5a4f3f"><a href="member_login.html" class="top_txt5a4f3f_a">登入</a>│<a href="member_join.html" class="top_txt5a4f3f_a">加入會員</a>│<a href="qa.html" class="top_txt5a4f3f_a">購物說明</a>│<a href="member_01_1.html" class="top_txt5a4f3f_a">訂單查詢</a>│<a href="http://www.facebook.com/pages/野遊風-戶外休閒用品館/114711665231623" target="_blank"><img src="images/icon_fb.png" width="14" height="14" border="0" align="middle" /></a></td>
+                <td width="300" rowspan="2" align="left" valign="bottom">
+                    <a href="/">
+                        <img src="{{{ asset('images/index.png') }}}" alt="" width="300" height="70" border="0" />
+                    </a>
+                </td>
+                <td align="right" valign="middle" class="top_txt5a4f3f">
+                    <a href="{{ route('loginForm') }}" class="top_txt5a4f3f_a">登入</a>
+                    │<a href="{{ route('registrationForm') }}" class="top_txt5a4f3f_a">加入會員</a>
+                    │<a href="qa.html" class="top_txt5a4f3f_a">購物說明</a>
+                    │<a href="member_01_1.html" class="top_txt5a4f3f_a">訂單查詢</a>
+                    │<a href="http://www.facebook.com/pages/野遊風-戶外休閒用品館/114711665231623" target="_blank">
+                        <img src="{{{ asset('images/icon_fb.png') }}}" width="14" height="14" border="0" align="middle" />
+                    </a>
+                </td>
             </tr>
             <tr>
-                <td align="right" valign="middle"><table border="0" cellspacing="0" cellpadding="0">
+                <td align="right" valign="middle">
+                    <table border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td class="top_txtc9bc9c"><div style="margin-right:5px; float:none">
                                     <div class="top_txt5a4f3f" style=" margin:auto; margin-right:10px; float:left">賴志明</div>
-                                    您好，歡迎來到野遊風。</div></td>
-                            <td align="right" valign="middle"><table width="185" border="0" cellpadding="0" cellspacing="0">
+                                    您好，歡迎來到野遊風。</div>
+                            </td>
+                            <td align="right" valign="middle">
+                                <table width="185" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td rowspan="3" align="right" valign="middle"><img src="images/index-03.jpg" width="5" height="25" /></td>
+                                        <td rowspan="3" align="right" valign="middle">
+                                            <img src="{{{ asset('images/index-03.jpg') }}}" width="5" height="25" />
+                                        </td>
                                         <td colspan="2" valign="bottom" style="border-top:1px solid #5a4f3f"><div style="height:1px"></div></td>
-                                        <td rowspan="3" align="left" valign="middle"><img src="images/index-05.jpg" width="5" height="25" /></td>
+                                        <td rowspan="3" align="left" valign="middle">
+                                            <img src="{{{ asset('images/index-05.jpg') }}}" width="5" height="25" />
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td width="55" align="center" bgcolor="#FFFFFF"><img src="images/cart.jpg" width="21" height="18" /></td>
+                                        <td width="55" align="center" bgcolor="#FFFFFF">
+                                            <img src="{{{ asset('images/cart.jpg') }}}" width="21" height="18" />
+                                        </td>
                                         <td align="left" bgcolor="#FFFFFF" class="top_txt5a4f3f">購物清單：0個商品</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" valign="top" style="border-bottom:1px solid #5a4f3f"><div style="height:1px"></div></td>
                                     </tr>
-                                </table></td>
+                                </table>
+                            </td>
                         </tr>
                     </table></td>
             </tr>

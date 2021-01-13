@@ -8,16 +8,17 @@
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
-	background-image: url(images/bg.jpg);
+	background-image: url({{ asset('images/bg.jpg') }});
 	background-repeat: repeat-x;
 	background-position: center top;
 }
 </style>
-<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
 <!-- InstanceParam name="top" type="boolean" value="true" -->
 <!-- InstanceParam name="copyright" type="boolean" value="true" -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <script type="text/javascript" src="switchmenu.js"></script>
 <script src="/js/jQuery.js"></script>
 
