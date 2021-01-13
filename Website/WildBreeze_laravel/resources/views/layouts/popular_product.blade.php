@@ -54,5 +54,6 @@
                     <img src="{{{ asset('images/item_bg.jpg') }}}" alt="" width="660" height="10" />
                 </td>
             </tr>
-        </table></td>
+        </table>
+    </td>
 </tr>

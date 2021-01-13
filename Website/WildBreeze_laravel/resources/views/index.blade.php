@@ -16,6 +16,7 @@
                     @include('layouts.promotional_goods')
                     @include('layouts.new_products')
                     @include('layouts.picnic_spot')
-                </table></td>
+                </table>
+            </td>
         </tr>
 @endsection

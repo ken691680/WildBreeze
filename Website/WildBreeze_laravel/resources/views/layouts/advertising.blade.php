@@ -1,8 +1,8 @@
-<tr>
-    <td height="10">
-        <img src="{{{ asset('images/li.png') }}}" alt="" width="1" height="1" />
-    </td>
-</tr>
+{{--<tr>--}}
+{{--    <td height="10">--}}
+{{--        <img src="{{{ asset('images/li.png') }}}" alt="" width="1" height="1" />--}}
+{{--    </td>--}}
+{{--</tr>--}}
 <tr>
     <td align="center" valign="middle">
         <table width="220" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -36,8 +36,8 @@
         </table>
     </td>
 </tr>
-<tr>
-    <td height="10">
-        <img src="{{{ asset('images/li.png') }}}" alt="" width="1" height="1" />
-    </td>
-</tr>
+{{--<tr>--}}
+{{--    <td height="10">--}}
+{{--        <img src="{{{ asset('images/li.png') }}}" alt="" width="1" height="1" />--}}
+{{--    </td>--}}
+{{--</tr>--}}
