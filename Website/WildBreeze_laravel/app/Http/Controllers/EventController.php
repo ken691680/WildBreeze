@@ -19,7 +19,7 @@ class EventController extends Controller
         return view('/event_list');
     }
 
-    public function showEventInfo()
+    public function showEventInfo($id)
     {
         return view('/event_info');
     }

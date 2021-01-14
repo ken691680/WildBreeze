@@ -18,7 +18,7 @@ class NewsController extends Controller
         return view('/news_list', []);
     }
 
-    public function showNewsInfo()
+    public function showNewsInfo($id)
     {
         return view('/news_info', []);
     }

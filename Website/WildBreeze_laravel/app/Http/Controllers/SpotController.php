@@ -15,4 +15,9 @@ class SpotController extends Controller
         return view('/spot_list', []);
     }
 
+    public function showSpotInfo($id)
+    {
+        return view('/spot_info', []);
+    }
+
 }
