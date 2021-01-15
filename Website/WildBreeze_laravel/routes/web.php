@@ -24,3 +24,4 @@ Route::get('/event/list', 'EventController@showEventList');
 Route::get('/event/info/{id}', 'EventController@showEventInfo');
 Route::get('/spot/list', 'SpotController@showSpotList');
 Route::get('/spot/info/{id}', 'SpotController@showSpotInfo');
+Route::get('/shop', 'ShopController@showShop');
