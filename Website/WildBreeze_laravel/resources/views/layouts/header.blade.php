@@ -8,8 +8,12 @@
                     </a>
                 </td>
                 <td align="right" valign="middle" class="top_txt5a4f3f">
-                    <a href="{{ route('loginForm') }}" class="top_txt5a4f3f_a">登入</a>
-                    │<a href="{{ route('registrationForm') }}" class="top_txt5a4f3f_a">加入會員</a>
+                    @if(empty($user['name']))
+                        <a href="{{ route('loginForm') }}" class="top_txt5a4f3f_a">登入</a>
+                        │<a href="{{ route('registrationForm') }}" class="top_txt5a4f3f_a">加入會員</a>
+                    @else
+                        <a href="javascript:void(0)" class="top_txt5a4f3f_a" id="logout">登出</a>
+                    @endif
                     │<a href="qa.html" class="top_txt5a4f3f_a">購物說明</a>
                     │<a href="member_01_1.html" class="top_txt5a4f3f_a">訂單查詢</a>
                     │<a href="http://www.facebook.com/pages/野遊風-戶外休閒用品館/114711665231623" target="_blank">
@@ -21,8 +25,9 @@
                 <td align="right" valign="middle">
                     <table border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td class="top_txtc9bc9c"><div style="margin-right:5px; float:none">
-                                    <div class="top_txt5a4f3f" style=" margin:auto; margin-right:10px; float:left">賴志明</div>
+                            <td class="top_txtc9bc9c">
+                                <div style="margin-right:5px; float:none">
+                                    <div class="top_txt5a4f3f" style=" margin:auto; margin-right:10px; float:left"> @if(!empty($user['name'])) {{ $user['name'] }} @else guest @endif</div>
                                     您好，歡迎來到野遊風。</div>
                             </td>
                             <td align="right" valign="middle">
@@ -51,7 +56,8 @@
                     </table></td>
             </tr>
             <tr>
-                <td colspan="2" align="center" valign="bottom"><object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="55">
+                <td colspan="2" align="center" valign="bottom">
+                    <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="900" height="55">
                         <param name="movie" value="swf/menu.swf" />
                         <param name="quality" value="high" />
                         <param name="wmode" value="transparent" />
@@ -69,15 +75,44 @@
                             <!-- 瀏覽器會為使用 Flash Player 6.0 和更早版本的使用者顯示下列替代內容。 -->
                             <div>
                                 <h4>這個頁面上的內容需要較新版本的 Adobe Flash Player。</h4>
-                                <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="取得 Adobe Flash Player" width="112" height="33" /></a></p>
+                                <p>
+                                    <a href="http://www.adobe.com/go/getflashplayer">
+                                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="取得 Adobe Flash Player" width="112" height="33" />
+                                    </a>
+                                </p>
                             </div>
                             <!--[if !IE]>-->
                         </object>
                         <!--<![endif]-->
-                    </object></td>
+                    </object>
+                </td>
             </tr>
-        </table></td>
+        </table>
+    </td>
 </tr>
 <tr>
     <td align="center" valign="top"><!-- InstanceBeginEditable name="content" -->
         <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+
+@section('script')
+                <script>
+                    $('#logout').click(function (){
+
+                        $.ajax({
+                            url: "{{ route('logout') }}",
+                            type: 'get',
+
+                            success: function (r) {
+                                swal.fire('', '你已登出', 'success')
+                                    .then(function (){
+                                        location.href="/";
+                                    })
+
+                            },
+                            err: function (e) {
+                                console.log(e);
+                            }
+                        })
+                    })
+                </script>
+@endsection

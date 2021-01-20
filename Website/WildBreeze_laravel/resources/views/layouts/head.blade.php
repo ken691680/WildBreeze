@@ -20,7 +20,9 @@
 <!-- InstanceEndEditable -->
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script type="text/javascript" src="switchmenu.js"></script>
-<script src="/js/jQuery.js"></script>
+<script src="{{ asset('js/jQuery.js') }}?{{ config('cache.static_file_version') }}"></script>
+<script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@10') }}?{{ config('cache.static_file_version') }}"></script>
+
 
 <script type="text/javascript">
 function MM_preloadImages() { //v3.0

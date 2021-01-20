@@ -75,4 +75,14 @@ class LoginController extends Controller
                 'msg' => 'error login',
             ], 200);
     }
+
+    public function showMemberLog()
+    {
+        return view('auth.member_log', []);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+    }
 }

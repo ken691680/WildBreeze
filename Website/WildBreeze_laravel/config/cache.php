@@ -100,4 +100,5 @@ return [
 
     'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache'),
 
+    'static_file_version' => '202009240002'
 ];
