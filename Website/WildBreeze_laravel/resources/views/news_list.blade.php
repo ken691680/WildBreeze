@@ -76,12 +76,17 @@
                                                         <td width="20" height="40" align="center" valign="middle" class="top_txt5a4f3f" style="border-bottom:#97866d 1px solid">‧
                                                         </td>
                                                         <td align="left" valign="middle"style="border-bottom:#97866d 1px solid">
-                                                            <a href="news_01.html" class="list_5a4f3f_a">慶祝Wild Breeze網站正式上線，凡加入會員即可享受獨享好禮！</a></td>
+                                                            <a href="news_01.html" class="list_5a4f3f_a">慶祝Wild Breeze網站正式上線，凡加入會員即可享受獨享好禮！</a>
+                                                        </td>
                                                         <td width="120" align="center" valign="middle" class="top_txt5a4f3f"style="border-bottom:#97866d 1px solid"> 2010.12.31</td>
                                                     </tr>
                                                 </table>
                                             </td>
                                             <td rowspan="2" align="left" style="background:url({{ asset('images/line-05.png') }}) left repeat-y">&nbsp;</td>
+                                        </tr>
+                                        <tr valign="top">
+                                            <td height="10" bgcolor="#CDBFA2"><img src="{{{ asset('images/li.png') }}}" alt="" width="1" height="1" />
+                                            </td>
                                         </tr>
                                         @include('layouts.pagination')
                                     </table>

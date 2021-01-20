@@ -434,6 +434,4 @@
     <!-- InstanceEndEditable -->
     </td>
 </tr>
-
-
 @endsection
