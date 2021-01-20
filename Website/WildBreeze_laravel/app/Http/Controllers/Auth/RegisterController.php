@@ -92,7 +92,7 @@ class RegisterController extends Controller
             ], 200);
         }
     }
-    
+
     protected function create(array $data)
     {
         return Users::create([

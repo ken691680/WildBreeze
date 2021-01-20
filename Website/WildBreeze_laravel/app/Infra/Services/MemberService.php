@@ -2,7 +2,9 @@
 
 namespace App\Infra\Services;
 
-use App\Infra\Models\Member;
+
+
+use App\Infra\Models\Users;
 
 /**
  * Class MemberService
@@ -10,15 +12,15 @@ use App\Infra\Models\Member;
  */
 class MemberService
 {
-    private $member;
+    private $users;
 
-    public function __construct(Member $member)
+    public function __construct(Users $users)
     {
-        $this->member = $member;
+        $this->users = $users;
     }
 
     public function getMember($email)
     {
-        return $this->member->getMemberEmail($email);
+        return $this->users->getIdByEmail($email);
     }
 }

@@ -17,12 +17,12 @@
                                             <td width="15" height="15" align="right">
                                                 <img src="{{{ asset('images/log_bg_01.png') }}}" width="15" height="15" />
                                             </td>
-                                            <td style="background:url(images/log_bg_02.png) repeat-x bottom">&nbsp;</td>
+                                            <td style="background:url({{ asset('images/log_bg_02.png') }}) repeat-x bottom">&nbsp;</td>
                                             <td width="15" align="left">
                                                 <img src="{{{ asset('images/log_bg_03.png') }}}" width="15" height="15" /></td>
                                         </tr>
                                         <tr>
-                                            <td align="right" style="background:url(images/log_bg_04.png) no-repeat right top">&nbsp;</td>
+                                            <td align="right" style="background:url({{ asset('images/log_bg_04.png') }}) no-repeat right top">&nbsp;</td>
                                             <td height="105" style="background:url(images/log_bg_05.png) repeat-x">
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
@@ -64,12 +64,12 @@
                                                     </tr>
                                                 </table>
                                             </td>
-                                            <td align="left" style="background:url(images/log_bg_06.png) no-repeat left top">&nbsp;</td>
+                                            <td align="left" style="background:url({{ asset('images/log_bg_06.png') }}) no-repeat left top">&nbsp;</td>
                                         </tr>
                                         <tr valign="top">
                                             <td height="15" align="right">
                                                 <img src="{{{ asset('images/log_bg_07.png') }}}" width="15" height="15" /></td>
-                                            <td style="background:url(images/log_bg_08.png) top repeat-x">&nbsp;</td>
+                                            <td style="background:url({{ asset('images/log_bg_08.png') }}) top repeat-x">&nbsp;</td>
                                             <td align="left">
                                                 <img src="{{{ asset('images/log_bg_09.png') }}}" width="15" height="15" />
                                             </td>
@@ -96,6 +96,7 @@
         var rememberMe = false;
 
         $('#login_btn').click(function (){
+
 
             if($('#email').val() == "") {
                 alert('email error');
