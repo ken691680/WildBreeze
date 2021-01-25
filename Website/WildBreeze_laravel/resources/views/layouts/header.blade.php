@@ -13,6 +13,7 @@
                         │<a href="{{ route('registrationForm') }}" class="top_txt5a4f3f_a">加入會員</a>
                     @else
                         <a href="javascript:void(0)" class="top_txt5a4f3f_a" id="logout">登出</a>
+                        │<a href="{{ route('member.log') }}" class="top_txt5a4f3f_a">會員資料修改</a>
                     @endif
                     │<a href="qa.html" class="top_txt5a4f3f_a">購物說明</a>
                     │<a href="member_01_1.html" class="top_txt5a4f3f_a">訂單查詢</a>
@@ -107,7 +108,6 @@
                                     .then(function (){
                                         location.href="/";
                                     })
-
                             },
                             err: function (e) {
                                 console.log(e);

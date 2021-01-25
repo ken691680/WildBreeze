@@ -15,7 +15,7 @@ use Illuminate\Notifications\Notifiable;
 class Users extends Authenticatable
 {
     use Notifiable;
-    use SoftDeletes;
+//    use SoftDeletes;
 
     protected $table = 'users';
 
@@ -52,5 +52,10 @@ class Users extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
+    }
+
+    public function memberDataUpdate(string $usrId, array $memberData)
+    {
+        return $this->where('id', $usrId)->update($memberData);
     }
 }

@@ -1,5 +1,8 @@
+<?php $code = null ;?>
 @extends('layouts.app')
 @section('content')
+    @csrf
+
 <tr>
     <td align="center" valign="top"><!-- InstanceBeginEditable name="content" -->
         <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -7,7 +10,9 @@
                 <td align="center" valign="top">
                         <table width="900" border="0" align="center" cellpadding="5" cellspacing="0">
                             <tr>
-                                <td height="5" colspan="2"><img src="{{ asset('images/li.png') }}" alt="" width="1" height="1" /></td>
+                                <td height="5" colspan="2">
+                                    <img src="{{ asset('images/li.png') }}" alt="" width="1" height="1" />
+                                </td>
                             </tr>
                             <tr>
                                 <td width="220" align="left" valign="top">
@@ -93,39 +98,43 @@
                                                     <tr>
                                                         <td width="100" align="center" valign="middle" class="title_5a4f3f">中文全名</td>
                                                         <td align="left" valign="middle" class="top_txt5a4f3f">
-                                                            <input name="textfield" type="text" class="top_txt5a4f3f" id="textfield"  style="width:120px" value="吾某某"/>
+                                                            <input name="textfield" type="text" class="top_txt5a4f3f" id="name"  style="width:120px" value="{{ $data['name'] }}"/>
                                                         </td>
                                                         <td width="370" align="left" valign="middle" class="top_txt5a4f3f">
-                                                            <input type="radio" name="radio" id="radio" value="radio" />
-                                                        <label for="radio"></label>
-                                                        先生
-                                                        <input type="radio" name="radio2" id="radio2" value="radio2" />
-                                                        <label for="radio2"></label>
-                                                        小姐</td>
+
+                                                            <input type="radio" name="radio" id="radio"  value="man"
+                                                                @if($data['gender'] == 'man') checked @endif/>
+                                                            <label for="radio"></label>
+                                                                先生
+                                                            <input type="radio" name="radio2" id="radio2" value="woman"
+                                                               @if($data['gender'] == 'woman') checked @endif/>
+                                                            <label for="radio2"></label>
+                                                        小姐
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                             <td width="100" align="center" valign="middle" class="title_5a4f3f">電子郵件</td>
-                                                            <td align="left" valign="middle" class="top_txt5a4f3f">whoamimail@mail.com</td>
+                                                            <td align="left" valign="middle"  class="top_txt5a4f3f">{{ $data['email'] }}</td>
                                                             <td align="left" valign="middle" class="top_txt5a4f3f">如需更改請洽客服人員</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="100" align="center" valign="middle" class="title_5a4f3f">設定密碼</td>
                                                         <td align="left" valign="middle" class="top_txt5a4f3f">
-                                                        <input name="textfield3" type="text" class="top_txt5a4f3f" id="textfield3"  style="width:120px"/>
+                                                            <input name="textfield3" type="password" class="top_txt5a4f3f" id="password"  style="width:120px"/>
                                                         </td>
                                                         <td align="left" valign="middle" class="top_txt5a4f3f">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="100" align="center" valign="middle" class="title_5a4f3f">確認密碼</td>
                                                         <td align="left" valign="middle" class="top_txt5a4f3f">
-                                                            <input name="textfield4" type="text" class="top_txt5a4f3f" id="textfield4"  style="width:120px"/>
+                                                            <input name="textfield4" type="password" class="top_txt5a4f3f" id="confirm_password"  style="width:120px"/>
                                                         </td>
                                                         <td align="left" valign="middle" class="top_txt5a4f3f">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="100" align="center" valign="middle" class="title_5a4f3f">手機號碼</td>
                                                         <td align="left" valign="middle" class="top_txt5a4f3f">
-                                                            <input name="textfield2" type="text" class="top_txt5a4f3f" id="textfield2"  style="width:120px"/>
+                                                            <input name="textfield2" value="{{ $data['phone'] }}" type="text" class="top_txt5a4f3f" id="phone"  style="width:120px"/>
                                                         </td>
                                                         <td align="left" valign="middle" class="top_txt5a4f3f">如：0912345678</td>
                                                     </tr>
@@ -133,16 +142,31 @@
                                                     <td align="center" valign="middle" class="title_5a4f3f">聯絡地址</td>
                                                     <td colspan="2" align="left" valign="middle" class="top_txt5a4f3f">
                                                         <label for="select"></label>
-                                                        <select name="select" class="top_txt5a4f3f" id="select" style="width:100px; height:20px">
-                                                            <option>郵遞區號</option>
+                                                        <select name="select" class="top_txt5a4f3f" id="select_city" style="width:100px; height:20px">
+                                                            @foreach($citys as $city)
+                                                                @if(empty($data['city']))
+                                                                    <option value="" disabled selected hidden>請選擇城市</option>
+                                                                @endif
+                                                                <option value="{{ $city }}" @if($city == $data['city'])  selected @endif>
+                                                                    {{ $city }}
+                                                                </option>
+                                                            @endforeach
                                                         </select>
-                                                        <input name="textfield5" type="text" class="top_txt5a4f3f" id="textfield7"  style="width:250px"/>
+                                                        <select name="select" class="top_txt5a4f3f" id="select_area" style="width:100px; height:20px">
+                                                            @foreach($areas as $area):
+                                                                <option value="{{ $area['ci02'] }}" ci03="{{ $area['ci03'] }}" @if($area['ci02'] ==  $data['township'])  selected  <?php $code = $area['ci03'];?> @endif>
+                                                                    {{ $area['ci02'] }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        <input name="textfield5" type="text" class="top_txt5a4f3f" value="{{ $code }}" id="address_code"  style="width:100px"/>
+                                                        <input name="textfield5" type="text" class="top_txt5a4f3f" value="{{ $data['address'] }}" id="address"  style="width:250px"/>
                                                     </td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center" valign="middle" class="title_5a4f3f">電 子 報</td>
                                                         <td colspan="2" align="left" valign="middle" class="top_txt5a4f3f">
-                                                            <input type="checkbox" name="checkbox" id="checkbox" />
+                                                            <input type="checkbox" name="checkbox" @if($data['new_latter'] == true) checked @endif id="new_latter" />
                                                             <label for="checkbox">我願意收到野遊風電子報</label>
                                                         </td>
                                                     </tr>
@@ -156,7 +180,7 @@
                                                             <table width="100" border="0" cellpadding="0" cellspacing="0" class="btn_bg">
                                                                 <tr>
                                                                     <td align="center" valign="middle" class="btn_bg">
-                                                                        <a href="member_join_01.html" class="btn_bg">確認送出</a>
+                                                                        <a href="javascript:void(0) " class="btn_bg" id="button" >確認送出</a>
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -195,4 +219,94 @@
     <!-- InstanceEndEditable -->
     </td>
 </tr>
+@endsection
+
+@section('script')
+    <script>
+        $('#select_city').change(function () {
+            $('#select_area option').remove();
+
+            var city = $('#select_city').val();
+
+            $.ajax({
+                url: "/area",
+                type: 'POST',
+                data:{ 'city':city, '_token': $("input[name='_token']").val()},
+
+                success: function(r) {
+                    console.log(r.data);
+                    r.data.forEach(function(area) {
+                        console.log(area);
+                        $("#select_area").append("<option value='"+area.ci02+"' ci03 ='"+ area.ci03+"' >"+area.ci02+"</option>");
+                    });
+                    $("#address_code").val(r.data[0].ci03);
+                },
+                error: function(e) {
+
+                }
+            })
+
+        })
+
+        $("#select_area").on('change',function(){
+            $("#address_code value").remove();
+            $("#select_area option:selected").attr('ci03');
+            var code = $("#select_area option:selected").attr('ci03');
+            $("#address_code").val(code);
+        });
+
+         $('#button').click(function (){
+
+             var data = {
+                 '_token': $("input[name='_token']").val(),
+                 'name' : $('#name').val(),
+                 'gender' : $('input:radio:checked').val(),
+                 'phone' : $('#phone').val(),
+                 'city' : $('#select_city').val(),
+                 'township' : $('#select_area').val(),
+                 'address' : $('#address').val(),
+                 'new_latter' : $("#new_latter").prop('checked') == true ? true :false
+             };
+
+             if ($('#confirm_password').val() != $('#password').val())
+             {
+                 alert('請確認你的密碼');
+                 return;
+             }
+
+             if ($('#password').val().length <= 7) {
+                alert('密碼長度不足8碼');
+                return;
+             }
+
+
+             if ($('#password').val() != "") {
+
+                 data.password = $('#password').val();
+                 data.password_confirmation = $('#confirm_password').val();
+             }
+
+
+
+             $.ajax({
+                 url: "/member_data_modify",
+                 type: 'POST',
+                 data: data,
+
+                 success: function(r) {
+
+                     if (r.code == 200) {
+                         alert(r.msg);
+                         location.reload();
+                     } else {
+                         alert(r.msg);
+                     }
+                 },
+                 error: function(e) {
+                     console.log(e.responseText);
+                 }
+             })
+         })
+
+    </script>
 @endsection
